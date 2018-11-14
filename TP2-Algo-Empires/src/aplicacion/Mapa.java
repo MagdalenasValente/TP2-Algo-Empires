@@ -1,4 +1,5 @@
-package aplicacion;
+
+import entidades.Entidad;
 
 import java.awt.Point;
 import java.util.*;
@@ -27,7 +28,7 @@ public class Mapa {
 	}
 
 	public void colocar(Point coordenadas, Entidad entidad) {
-		Point tamanioDeLaEntidad = entidad.vertamanio();
+		Point tamanioDeLaEntidad = entidad.verTamanio();
 		if(!this.verificarCoordenadas(coordenadas, tamanioDeLaEntidad)) {
 			return;/*crear error*/
 		}

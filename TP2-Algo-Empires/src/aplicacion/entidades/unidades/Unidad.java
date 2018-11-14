@@ -1,8 +1,10 @@
-package aplicacion;
+package entidades.unidades;
+
+import entidades.Entidad;
 
 import java.awt.Point;
 
-public abstract class Unidad extends Entidad{
+public abstract class Unidad extends Entidad {
 
 	public Unidad(int vida) {
 		super(vida);

@@ -1,4 +1,4 @@
-package aplicacion;
+package entidades;
 
 import java.awt.Point;
 
