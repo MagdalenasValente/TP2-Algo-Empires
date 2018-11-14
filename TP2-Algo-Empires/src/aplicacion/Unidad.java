@@ -7,6 +7,6 @@ public abstract class Unidad extends Entidad{
 	public Unidad(int vida) {
 		super(vida);
 	}
-	void deslpazarse(Point direccion) {
+	void desplazarse(Point direccion) {
 	}//se podria crear una clase direccion
 }
