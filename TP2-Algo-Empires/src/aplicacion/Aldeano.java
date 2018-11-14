@@ -13,7 +13,7 @@ public class Aldeano extends Unidad{
 	}
 
 	@Override
-	public Point verTamaño() {
+	public Point vertamanio() {
 		return new Point(this.ancho, this.alto);
 	}
 }

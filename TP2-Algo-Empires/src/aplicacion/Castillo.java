@@ -4,11 +4,11 @@ import java.awt.Point;
 
 public class Castillo extends Edificio{
     private int vida;
-    private Point tamaño;
+    private Point tamanio;
 
     public Castillo() {
     	super(1000);
-        this.tamaño = new Point(4,4);
+        this.tamanio = new Point(4,4);
     }
 
     @Override
@@ -17,8 +17,8 @@ public class Castillo extends Edificio{
     }
     
     @Override
-    public Point verTamaño() {
-    	return this.tamaño;
+    public Point vertamanio() {
+    	return this.tamanio;
     }
 
     @Override

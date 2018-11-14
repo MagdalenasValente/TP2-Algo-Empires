@@ -4,11 +4,11 @@ import java.awt.Point;
 
 public class Plaza extends Edificio{
     private int vida;
-	private Point tamaño;
+	private Point tamanio;
 
     public Plaza() {
         super(450);
-        this.tamaño = new Point(2,2);
+        this.tamanio = new Point(2,2);
     }
 
     @Override
@@ -17,8 +17,8 @@ public class Plaza extends Edificio{
     }
     
     @Override
-    public Point verTamaño() {
-    	return this.tamaño;
+    public Point vertamanio() {
+    	return this.tamanio;
     }
 
     @Override
