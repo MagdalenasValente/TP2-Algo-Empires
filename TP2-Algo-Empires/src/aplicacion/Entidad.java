@@ -4,7 +4,7 @@ import java.awt.Point;
 
 public abstract class Entidad{
     private int vida;
-	private Point tamaño;
+	private Point tamanio;
 	
 	public Entidad(int vida) {
 		this.vida = vida;
@@ -12,7 +12,7 @@ public abstract class Entidad{
 	public int vida() {
     	return this.vida;
     }
-	public Point verTamaño() {
-		return this.tamaño;
+	public Point verTamanio() {
+		return this.tamanio;
 	}
 }
