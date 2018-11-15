@@ -2,7 +2,10 @@ import java.awt.Point;
 
 import entidades.Entidad;
 import entidades.edificios.Castillo;
+import entidades.edificios.Plaza;
 import entidades.unidades.Aldeano;
+import entidades.unidades.Unidad;
+import excepciones.EspacioOcupadoException;
 import org.junit.Test;
 
 
@@ -36,4 +39,53 @@ public class MapaUnitTest {
 		Point posicionFueraDelCastillo = new Point(6,6);
 		assert(!mapa.estaOcupado(posicionFueraDelCastillo));
 	}
+
+	@Test
+	public void mapaColocarUnaPlazaEnUnEspacioOcupadoLevantaEspacioOcupadoException() {
+	    boolean lanzoLaExcepcion = false;
+		Mapa mapa = new Mapa(40, 40);
+		Entidad plaza = new Plaza();
+		Unidad aldeano = new Aldeano();
+		Point coordenadas = new Point(2, 2);
+		mapa.colocar(coordenadas, aldeano);
+		try{
+		    mapa.colocar(coordenadas, plaza);
+        }catch (EspacioOcupadoException e){
+		    lanzoLaExcepcion = true;
+        }
+		assert(lanzoLaExcepcion);
+	}
+
+    @Test
+    public void mapaColocarUnCastilloEncimaDeUnAldeanoLevanteEspacioOcupadoException() {
+        boolean lanzoLaExcepcion = false;
+        Mapa mapa = new Mapa(40, 40);
+        Entidad castillo = new Castillo();
+        Unidad aldeano = new Aldeano();
+        Point coordenadasAldeano = new Point(2, 2);
+        Point coordenadasCastillo = new Point(1,1);
+        mapa.colocar(coordenadasAldeano, aldeano);
+        try{
+            mapa.colocar(coordenadasCastillo, castillo);
+        }catch (EspacioOcupadoException e){
+            lanzoLaExcepcion = true;
+        }
+        assert(lanzoLaExcepcion);
+    }
+
+    @Test
+    public void mapaColocarUnCastilloEncimaDeUnAldeanoNoColocaElCastillo() {
+        boolean lanzoLaExcepcion = false;
+        Mapa mapa = new Mapa(40, 40);
+        Entidad castillo = new Castillo();
+        Unidad aldeano = new Aldeano();
+        Point coordenadasAldeano = new Point(2, 2);
+        Point coordenadasCastillo = new Point(1,1);
+        mapa.colocar(coordenadasAldeano, aldeano);
+        try{
+            mapa.colocar(coordenadasCastillo, castillo);
+        }catch (EspacioOcupadoException e){
+        }
+        assert(!mapa.estaOcupado(coordenadasCastillo));
+    }
 }

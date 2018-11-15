@@ -1,5 +1,6 @@
 
 import entidades.Entidad;
+import excepciones.EspacioOcupadoException;
 
 import java.awt.Point;
 import java.util.*;
@@ -27,8 +28,24 @@ public class Mapa {
 		return(mayorQueCero && menorQueFinDelMapa);
 	}
 
+	private boolean verificarQueNoColisiona(Point coordenadas, Point tamanioDeLaEntidad){
+        int coordenadaEnX = (int)coordenadas.getX();
+        int coordenadaEnY = (int)coordenadas.getY();
+		for(int i = 0; i<(int)tamanioDeLaEntidad.getX(); i++) {
+			for(int j = 0; j<(int)tamanioDeLaEntidad.getY(); j++) {
+				if(estaOcupado(new Point(coordenadaEnX + i,coordenadaEnY + j))){
+				    return false;
+                }
+			}
+		}
+		return true;
+	}
+
 	public void colocar(Point coordenadas, Entidad entidad) {
 		Point tamanioDeLaEntidad = entidad.verTamanio();
+		if(!this.verificarQueNoColisiona(coordenadas, tamanioDeLaEntidad)) {
+			throw new EspacioOcupadoException();
+		}
 		if(!this.verificarCoordenadas(coordenadas, tamanioDeLaEntidad)) {
 			return;/*crear error*/
 		}
