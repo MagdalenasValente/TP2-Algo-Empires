@@ -19,5 +19,15 @@ public class Plaza extends Edificio {
         /*aca estaria el posicionamiento en el terreno de la unidad*/
         return nueva_unidad;
     }
+
+    @Override
+    public void serReparado(){
+        int vidaTrasReparacion = this.vida() + 25;
+        if(vidaTrasReparacion > this.vidaMaxima){
+            super.setVida(vidaMaxima);
+            return;
+        }
+        super.setVida(vidaTrasReparacion);
+    }
     
 }

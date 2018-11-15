@@ -16,4 +16,7 @@ public abstract class Entidad{
 	public Point verTamanio() {
 		return this.tamanio;
 	}
+	public void setVida(int vida){
+	    this.vida = vida;
+    }
 }

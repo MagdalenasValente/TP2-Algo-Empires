@@ -1,5 +1,8 @@
 package entidades.unidades;
 
+import entidades.edificios.Edificio;
+import excepciones.NoPuedeRepararException;
+
 public class ArmaDeAsedio extends Unidad {
 	private int vidaMaxima;
 
@@ -14,4 +17,9 @@ public class ArmaDeAsedio extends Unidad {
 		/*coste en oro, poblacion etc*/
 		return arma_de_asedio_nueva;
 	}
+
+    @Override
+    public void reparar(Edificio edificio) {
+        throw new NoPuedeRepararException();
+    }
 }

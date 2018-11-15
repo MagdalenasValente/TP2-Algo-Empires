@@ -1,5 +1,7 @@
 package entidades.unidades;
 
+import entidades.edificios.Edificio;
+
 import java.awt.Point;
 
 public class Aldeano extends Unidad {
@@ -16,5 +18,9 @@ public class Aldeano extends Unidad {
 		/*coste en oro, poblacion etc*/
 		return aldeano_nuevo;
 	}
+
+	public void reparar(Edificio edificio){
+	    edificio.serReparado();
+    }
 
 }
