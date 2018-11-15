@@ -2,6 +2,7 @@ package entidades.edificios;
 
 
 import entidades.unidades.FactoryUnidades.UnidadFactory;
+import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
