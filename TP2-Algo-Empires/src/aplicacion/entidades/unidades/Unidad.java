@@ -2,7 +2,7 @@ package entidades.unidades;
 
 import entidades.Entidad;
 import entidades.edificios.Edificio;
-import excep.DireccionInvalidaException;
+import excepciones.DireccionInvalidaException;
 import excepciones.NoPuedeRepararException;
 import mapa.Mapa;
 
