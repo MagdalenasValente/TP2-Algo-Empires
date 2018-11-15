@@ -26,4 +26,11 @@ public class AldeanoUnitTest {
         assertEquals(1000, castillo.vida());
     }
 
+    @Test
+    public void aldeano(){
+        Unidad aldeano = new Aldeano();
+        Edificio castillo = new Castillo();
+        aldeano.reparar(castillo);
+        assertEquals(1000, castillo.vida());
+    }
 }
