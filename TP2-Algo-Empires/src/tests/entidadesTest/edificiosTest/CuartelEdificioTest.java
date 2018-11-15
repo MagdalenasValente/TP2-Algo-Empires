@@ -20,18 +20,15 @@ public class CuartelEdificioTest {
 
     @Test
     public void cuartelCreaUnidadEspadachin(){
-        Espadachin espadachin_dummy = new Espadachin();
         Edificio cuartel = new Cuartel();
-        Unidad espadachin = cuartel.reclutar_unidad(espadachin_dummy);
+        Unidad espadachin = cuartel.crearEspadachin();
         assertEquals(espadachin.vida(), 100);
     }
-
     @Test
     public void cuartelCreaUnidadArquero(){
-        Arquero arquero_dummy = new Arquero();
         Edificio cuartel = new Cuartel();
-        Unidad arquero = cuartel.reclutar_unidad(arquero_dummy);
+        Unidad arquero = cuartel.crearArquero();
         assertEquals(arquero.vida(), 75);
     }
-    /*Preguntarle al corrector si es nesesario restringir las unidades que se pueden reclutar y hacer pruevas de intentar reclutar unidades invalidas*/
+    /*Preguntarle al corrector si es nesesario restringir las unidades que se pueden reclutar y hacer pruebas de intentar reclutar unidades invalidas*/
 }
