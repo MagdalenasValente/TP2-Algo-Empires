@@ -9,4 +9,9 @@ public class Espadachin extends Unidad {
 		super(100);
 		this.vidaMaxima = 100;
 	}
+
+
+	public void actuar(){
+
+	}
 }

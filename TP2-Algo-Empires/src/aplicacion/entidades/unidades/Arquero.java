@@ -12,4 +12,9 @@ public class Arquero extends Unidad {
 		this.vidaMaxima = 75;
 	}
 
+
+	public void actuar(){
+
+	}
+
 }

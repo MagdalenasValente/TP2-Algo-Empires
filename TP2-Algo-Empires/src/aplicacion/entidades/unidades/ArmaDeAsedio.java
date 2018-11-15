@@ -12,4 +12,8 @@ public class ArmaDeAsedio extends Unidad {
 		this.vidaMaxima = 1000;
 	}
 
+
+	public void actuar(){
+
+	}
 }
