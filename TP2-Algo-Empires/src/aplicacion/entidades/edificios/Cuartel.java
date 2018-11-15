@@ -7,9 +7,11 @@ import entidades.unidades.Unidad;
 import java.awt.Point;
 
 public class Cuartel extends Edificio {
+    private int vidaMaxima;
     
     public Cuartel() {
         super(250, new Point(2,2));
+        this.vidaMaxima = 250;
     }
 
 
@@ -30,6 +32,16 @@ public class Cuartel extends Edificio {
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
+    }
+
+    @Override
+    public void serReparado(){
+        int vidaTrasReparacion = this.vida() + 50;
+        if(vidaTrasReparacion > this.vidaMaxima){
+            super.setVida(vidaMaxima);
+            return;
+        }
+        super.setVida(vidaTrasReparacion);
     }
 
 }
