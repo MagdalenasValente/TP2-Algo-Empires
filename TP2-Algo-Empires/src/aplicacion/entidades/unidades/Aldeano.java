@@ -20,7 +20,12 @@ public class Aldeano extends Unidad {
 	}
 
 	public void reparar(Edificio edificio){
-	    edificio.serReparado();
+
+		edificio.serReparado(this);
     }
+
+    public void actuar(){
+
+	}
 
 }

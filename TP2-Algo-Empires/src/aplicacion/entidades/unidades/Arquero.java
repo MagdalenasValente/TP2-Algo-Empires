@@ -18,4 +18,7 @@ public class Arquero extends Unidad {
 		return arquero_nuevo;
 	}
 
+	public void actuar(){
+
+	}
 }

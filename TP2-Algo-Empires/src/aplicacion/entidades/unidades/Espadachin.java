@@ -14,4 +14,7 @@ public class Espadachin extends Unidad {
 		/*coste en oro, poblacion etc*/
 		return espadachin_nuevo;
 	}
+	public void actuar(){
+
+	}
 }

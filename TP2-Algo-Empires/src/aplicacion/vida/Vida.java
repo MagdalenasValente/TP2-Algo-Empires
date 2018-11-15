@@ -14,20 +14,28 @@ public class Vida {
         this.vidaActual = vidaActual;
         this.vidaMaxima = vidaMaxima;
     }
-
-    public void regenerarVida(int puntosDeVida){
-        if (this.vidaActual == this.vidaMaxima){
-            throw new VidaLlenaException();
-        }
-        int vidaRegenerada = this.vidaActual+ puntosDeVida;
-        if(vidaRegenerada > this.vidaMaxima){
-            this.vidaActual = vidaMaxima;
-            return;
-        }
-        this.vidaActual = vidaRegenerada;
+    public Vida(int vidaMaxima){
+        this.vidaActual = vidaMaxima;
+        this.vidaMaxima = vidaMaxima;
     }
 
-    public Object verVida() {
+    public boolean regenerarVida(int puntosDeVida){
+        if (fullVida()){
+            return false;
+        }
+        this.vidaActual = this.vidaActual+ puntosDeVida;
+        if(this.vidaActual > this.vidaMaxima){ this.vidaActual = vidaMaxima;}
+        return true;
+    }
+
+    public void setVida(int vida){
+        this.vidaActual=vida;
+    }
+
+    public boolean fullVida(){
+        return (this.vidaActual == this.vidaMaxima);
+    }
+    public int verVida() {
         return this.vidaActual;
     }
 }

@@ -12,7 +12,9 @@ public abstract class Edificio extends Entidad {
 	public Edificio(int vida, Point tamanio) {
 		super(vida, tamanio);
 	}
-	public abstract void serReparado();
+
+	public abstract void serReparado(Aldeano aldeano);
+
 	public void setVida(int vida){
 	    super.setVida(vida);
     }

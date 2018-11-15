@@ -1,5 +1,6 @@
 package entidades.edificios;
 
+import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
@@ -35,13 +36,17 @@ public class Cuartel extends Edificio {
     }
 
     @Override
-    public void serReparado(){
+    public void serReparado(Aldeano aldeano){
         int vidaTrasReparacion = this.vida() + 50;
         if(vidaTrasReparacion > this.vidaMaxima){
             super.setVida(vidaMaxima);
             return;
         }
         super.setVida(vidaTrasReparacion);
+    }
+
+    public void actuar(){
+
     }
 
 }
