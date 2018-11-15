@@ -13,7 +13,7 @@ public class ArmaDeAsedio extends Unidad {
 	}
 
 
-	public void actuar(){
-
+	public int actuar(){
+		return 0;
 	}
 }

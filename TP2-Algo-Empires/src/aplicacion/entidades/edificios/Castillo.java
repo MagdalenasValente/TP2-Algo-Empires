@@ -4,8 +4,7 @@ package entidades.edificios;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
-import entidades.unidades.StateAldeano.RecolectorOro;
-import entidades.unidades.StateAldeano.Reparador;
+
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
@@ -35,7 +34,8 @@ public class Castillo extends Edificio{
 
     }
 
-    public void actuar(){
+    public int actuar(){
+        return 0;
 
     }
 

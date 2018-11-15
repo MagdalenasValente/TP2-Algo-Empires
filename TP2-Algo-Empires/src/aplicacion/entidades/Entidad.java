@@ -51,5 +51,5 @@ public abstract class Entidad{
 	    this.mapa = mapa;
     }
 
-    public abstract void actuar();
+    public abstract int actuar();
 }

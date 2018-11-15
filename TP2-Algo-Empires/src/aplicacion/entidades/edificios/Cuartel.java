@@ -3,7 +3,6 @@ package entidades.edificios;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
-import entidades.unidades.StateAldeano.RecolectorOro;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
@@ -11,10 +10,10 @@ import java.awt.Point;
 public class Cuartel extends Edificio {
     private int vidaMaxima;
 
-    public int reparacion = 15; // se puede abstraer en un factory, o al instanciar la clase.
+
 
     public Cuartel() {
-        super(250, new Point(2,2),15);
+        super(250, new Point(2,2),50);
         this.vidaMaxima = 250;
     }
 
@@ -39,7 +38,8 @@ public class Cuartel extends Edificio {
     }
 
 
-    public void actuar(){
+    public int actuar(){
+        return 0;
 
     }
 
