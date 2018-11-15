@@ -25,12 +25,19 @@ public abstract class Entidad{
 	public int vida() {
     	return this.vida.verVida();
     }
+    public boolean fullVida(){
+    	return vida.fullVida();
+	}
 	public Point verTamanio() {
 		return this.tamanio;
 	}
 	public void setVida(int vida){
 	    this.vida.setVida(vida);
     }
+
+    public void repararVida(int valor){
+    	this.vida.regenerarVida(valor);
+	}
 
 	public void setPosicion(Point posicion){
 	    this.posicion = posicion;
