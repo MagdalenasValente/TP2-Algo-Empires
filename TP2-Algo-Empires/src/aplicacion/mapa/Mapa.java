@@ -1,4 +1,4 @@
-package Mapa;
+package mapa;
 
 import entidades.Entidad;
 import excepciones.EspacioOcupadoException;
