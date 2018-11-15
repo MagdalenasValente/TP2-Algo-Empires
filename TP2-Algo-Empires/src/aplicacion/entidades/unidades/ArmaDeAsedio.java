@@ -18,8 +18,4 @@ public class ArmaDeAsedio extends Unidad {
 		return arma_de_asedio_nueva;
 	}
 
-    @Override
-    public void reparar(Edificio edificio) {
-        throw new NoPuedeRepararException();
-    }
 }

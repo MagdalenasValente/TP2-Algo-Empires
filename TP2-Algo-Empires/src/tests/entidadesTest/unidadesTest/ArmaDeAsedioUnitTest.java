@@ -19,15 +19,17 @@ public class ArmaDeAsedioUnitTest {
 		assertEquals(armaDeAsedio.vida(), 150);
 	}
 
+	@Test
 	public void ArmaRepararCastilloLevantaNoPuedeRepararException(){
+	    boolean lanzoLaExcepcion = false;
 		Unidad armaDeAsedio = new ArmaDeAsedio();
 		Edificio castillo = new Castillo();
-		armaDeAsedio.reparar(castillo);
         try {
             armaDeAsedio.reparar(castillo);
         } catch (NoPuedeRepararException e) {
-            assertTrue(true);
+            lanzoLaExcepcion = true;
         }
+        assert(lanzoLaExcepcion);
 	}
 
 

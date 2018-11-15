@@ -2,6 +2,7 @@ package entidades.unidades;
 
 import entidades.Entidad;
 import entidades.edificios.Edificio;
+import excepciones.NoPuedeRepararException;
 
 import java.awt.Point;
 
@@ -14,6 +15,7 @@ public abstract class Unidad extends Entidad {
 	}//se podria crear una clase direccion
 	public abstract Unidad crear_unidad();
 
-    public void reparar(Edificio castillo) {
+    public void reparar(Edificio edificio) {
+        throw new NoPuedeRepararException();
     }
 }
