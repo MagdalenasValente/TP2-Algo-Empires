@@ -22,5 +22,14 @@ public class CastilloEdificioTest {
         Unidad asedio = castillo.crearAsedio();
         assertEquals(asedio.vida(), 150);/*encontrar otra manera de verificar que sea la unidad correspondiente*/
     }
+
+    @Test
+    public void castilloSetearVida(){
+        Edificio castillo = new Castillo();
+
+        Unidad asedio = castillo.crearAsedio();
+        asedio.setVida(50);
+        assertEquals(asedio.vida(), 50);/*encontrar otra manera de verificar que sea la unidad correspondiente*/
+    }
     /*Preguntarle al corrector si es nesesario restringir las unidades que se pueden reclutar y hacer pruevas de intentar reclutar unidades invalidas*/
 }

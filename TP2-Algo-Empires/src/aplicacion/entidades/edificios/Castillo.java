@@ -4,17 +4,18 @@ package entidades.edificios;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
+import entidades.unidades.StateAldeano.RecolectorOro;
+import entidades.unidades.StateAldeano.Reparador;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
 public class Castillo extends Edificio{
 
-    private int vidaMaxima;
-
+    // se puede abstraer en un factory, o al instanciar la clase.
     public Castillo() {
-    	super(1000, new Point(4,4));
-    	this.vidaMaxima = 1000;
+    	super(1000, new Point(4,4), 15);
+
     }
 
 
@@ -28,15 +29,9 @@ public class Castillo extends Edificio{
 
     }
 
-    @Override
-    public void serReparado(Aldeano aldeano){
-        //aldeano.setState();
-        int vidaTrasReparacion = this.vida() + 15;
-        if(vidaTrasReparacion > this.vidaMaxima){
-            super.setVida(vidaMaxima);
-            return;
-        }
-        super.setVida(vidaTrasReparacion);
+
+
+    public void serConstruido(Aldeano aldeano) {
 
     }
 

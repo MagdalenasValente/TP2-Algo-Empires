@@ -22,9 +22,63 @@ public class AldeanoUnitTest {
     public void aldeanoRepararCastilloConTodaLaVidaLoDejaEn1000DeVida(){
         Unidad aldeano = new Aldeano();
         Edificio castillo = new Castillo();
+        castillo.setVida(500);
         aldeano.reparar(castillo);
+        aldeano.actuar();
+        assertEquals(515, castillo.vida());
+        aldeano.actuar();
+        assertEquals(530, castillo.vida());
+    }
+
+
+    @Test
+    public void aldeanoReparaCastilloConTodaLaVidaSumaOro(){
+        Aldeano aldeano = new Aldeano();
+        Edificio castillo = new Castillo();
+        assertEquals(0, aldeano.getOro());
+        aldeano.reparar(castillo);
+        aldeano.actuar();
+        assertEquals(20, aldeano.getOro());
+
+    }
+
+
+    @Test
+    public void aldeanoAlRepararCastilloNoJuntaOro(){
+        Aldeano aldeano = new Aldeano();
+        Edificio castillo = new Castillo();
+        castillo.setVida(500);
+        aldeano.reparar(castillo);
+        aldeano.actuar();
+        assertEquals(0, aldeano.getOro());
+        aldeano.actuar();
+        assertEquals(0, aldeano.getOro());
+        aldeano.actuar();
+        assertEquals(0, aldeano.getOro());
+
+    }
+
+
+    @Test
+    public void aldeanoAlRepararCastilloNoJuntaOroHastaQueLoReparoCompletamente(){
+        Aldeano aldeano = new Aldeano();
+        Edificio castillo = new Castillo();
+        castillo.setVida(975);
+        aldeano.reparar(castillo);
+        aldeano.actuar();
+        assertEquals(0, aldeano.getOro());
+        assertEquals(990, castillo.vida());
+        aldeano.actuar();
+        assertEquals(0, aldeano.getOro());
+        assertEquals(1000, castillo.vida());
+        aldeano.actuar();
+        assertEquals(20, aldeano.getOro());
+        assertEquals(1000, castillo.vida());
+        aldeano.actuar();
+        assertEquals(40, aldeano.getOro());
         assertEquals(1000, castillo.vida());
     }
+
 
 
 }
