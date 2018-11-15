@@ -8,7 +8,6 @@ import java.awt.Point;
 
 public abstract class Entidad{
 
-    private int vida;
     private Vida vida;
 	private Point tamanio;
 	private Point posicion;
@@ -18,9 +17,6 @@ public abstract class Entidad{
         return this.mapa;
     }
 
-
-    public Entidad(int vida, Point tamanio) {
-		this.vida = vida;
 
 	public Entidad(int vida, Point tamanio) {
 		this.vida = new Vida(vida);
