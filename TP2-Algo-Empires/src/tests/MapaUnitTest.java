@@ -9,6 +9,8 @@ import entidades.unidades.Unidad;
 import excepciones.EspacioOcupadoException;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 
 public class MapaUnitTest {
 
@@ -88,5 +90,18 @@ public class MapaUnitTest {
         }catch (EspacioOcupadoException e){
         }
         assert(!mapa.estaOcupado(coordenadasCastillo));
+    }
+
+    @Test
+    public void moverAldeanoVariasVecesTerminaEnLaPosicionCorrecta(){
+	    Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point arriba = new Point(0,1);
+        Point derecha = new Point(1,0);
+        aldeano.desplazarse(arriba);
+        aldeano.desplazarse(arriba);
+        aldeano.desplazarse(derecha);
+        assertEquals(aldeano.verPosicion(), new Point(21,22));
     }
 }
