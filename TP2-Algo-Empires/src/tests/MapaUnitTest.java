@@ -1,5 +1,6 @@
 import java.awt.Point;
 
+import Mapa.Mapa;
 import entidades.Entidad;
 import entidades.edificios.Castillo;
 import entidades.edificios.Plaza;
