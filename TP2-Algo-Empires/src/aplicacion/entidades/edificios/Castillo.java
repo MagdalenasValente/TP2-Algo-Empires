@@ -7,10 +7,11 @@ import java.awt.Point;
 
 public class Castillo extends Edificio{
 
-    private Point tamanio;
+    private int vidaMaxima;
 
     public Castillo() {
     	super(1000, new Point(4,4));
+    	this.vidaMaxima = 1000;
     }
 
 

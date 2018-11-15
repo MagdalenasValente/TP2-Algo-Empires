@@ -5,9 +5,12 @@ import entidades.unidades.Unidad;
 import java.awt.Point;
 
 public class Plaza extends Edificio {
+    private int vidaMaxima;
+
 
     public Plaza() {
         super(450, new Point(2,2));
+        this.vidaMaxima = 450;
     }
 
     @Override

@@ -1,9 +1,12 @@
 package entidades.unidades;
 
 public class ArmaDeAsedio extends Unidad {
+	private int vidaMaxima;
+
 
 	public ArmaDeAsedio() {
 		super(150);
+		this.vidaMaxima = 1000;
 	}
 
 	public Unidad crear_unidad() {
