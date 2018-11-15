@@ -7,7 +7,7 @@ public class Espadachin extends Unidad {
 
 	public Espadachin() {
 		super(100);
-		this.vidaMaxima = 100
+		this.vidaMaxima = 100;
 	}
 	public  Unidad crear_unidad() {
 		Espadachin espadachin_nuevo = new Espadachin();
