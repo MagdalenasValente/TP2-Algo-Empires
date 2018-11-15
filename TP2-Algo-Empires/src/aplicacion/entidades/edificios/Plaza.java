@@ -27,23 +27,7 @@ public class Plaza extends Edificio {
 
     }
 
-    @Override
-    public void serReparado(Aldeano aldeano){
-        int vidaTrasReparacion = this.vida() + 25;
-        if(vidaTrasReparacion > this.vidaMaxima){
-            super.setVida(vidaMaxima);
-            return;
-        }
-        super.setVida(vidaTrasReparacion);
-    }
 
-    public void repararse(Aldeano aldeano){
-        if(this.fullVida()) {
-            aldeano.setState(new RecolectorOro());
-        }
-        this.repararVida(reparacion);
-
-    }
 
     @Override
     public void serConstruido(Aldeano aldeano) {

@@ -9,6 +9,7 @@ public class Reparador implements StateAldeano {
     public Reparador (Edificio edificio){
         this.edificio = edificio;
     }
+
     public int juntarOro() {
         return 0;
 

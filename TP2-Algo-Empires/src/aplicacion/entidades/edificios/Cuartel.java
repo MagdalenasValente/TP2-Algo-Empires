@@ -38,25 +38,8 @@ public class Cuartel extends Edificio {
 
     }
 
-    @Override
-    public void serReparado(Aldeano aldeano){
-        int vidaTrasReparacion = this.vida() + 50;
-        if(vidaTrasReparacion > this.vidaMaxima){
-            super.setVida(vidaMaxima);
-            return;
-        }
-        super.setVida(vidaTrasReparacion);
-    }
 
     public void actuar(){
-
-    }
-
-    public void repararse(Aldeano aldeano){
-        if(this.fullVida()) {
-            aldeano.setState(new RecolectorOro());
-        }
-        this.repararVida(reparacion);
 
     }
 
