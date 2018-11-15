@@ -9,7 +9,7 @@ import java.awt.Point;
 public abstract class Entidad{
 
     private Vida vida;
-	private Point tamanio;
+	private Point t6amanio;
 	private Point posicion;
     private Mapa mapa;
 
