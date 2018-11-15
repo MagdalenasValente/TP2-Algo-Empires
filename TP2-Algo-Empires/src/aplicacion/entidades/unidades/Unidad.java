@@ -11,4 +11,5 @@ public abstract class Unidad extends Entidad {
 	}
 	void desplazarse(Point direccion) {
 	}//se podria crear una clase direccion
+	public abstract Unidad crear_unidad();
 }

@@ -23,12 +23,11 @@ public class Cuartel extends Edificio {
     //	return this.tamanio;
     //}
 
-
-    //@Override
-    //public Unidad reclutar_unidad(Unidad unidad) {
-    //    Unidad nueva_unidad = unidad.crear_unidad();
-    //    /*aca estaria el posicionamiento en el terreno de la unidad. se podria usar una fabrica de unidades*/
-    //    return nueva_unidad;
-    //}
+    @Override
+    public Unidad reclutar_unidad(Unidad unidad) {
+        Unidad nueva_unidad = unidad.crear_unidad();
+        /*aca estaria el posicionamiento en el terreno de la unidad*/
+        return nueva_unidad;
+    }
 
 }

@@ -12,8 +12,15 @@ public class Aldeano extends Unidad {
 		this.alto = 1;
 	}
 
-	//@Override
-	//public Point vertamanio() {
-	//	return new Point(this.ancho, this.alto);
-	//}
+
+	public Point vertamanio() {
+		return new Point(this.ancho, this.alto);
+	}
+
+	public  Unidad crear_unidad() {
+		Aldeano aldeano_nuevo = new Aldeano();
+		/*coste en oro, poblacion etc*/
+		return aldeano_nuevo;
+	}
+
 }

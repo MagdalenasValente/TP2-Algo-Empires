@@ -18,16 +18,16 @@ public class Plaza extends Edificio {
         return this.vida;
     }
     
-    //@Override
-    //public Point vertamanio() {
-    //	return this.tamanio;
-    //}
+    @Override
+    public Point verTamanio() {
+    	return this.tamanio;
+    }
 
-    //@Override
-    //public Unidad reclutar_unidad(Unidad unidad) {
-    //    Unidad nueva_unidad = unidad.crear_unidad();
-    //    /*aca estaria el posicionamiento en el terreno de la unidad*/
-    //    return nueva_unidad;
-    //}
+    @Override
+    public Unidad reclutar_unidad(Unidad unidad) {
+        Unidad nueva_unidad = unidad.crear_unidad();
+        /*aca estaria el posicionamiento en el terreno de la unidad*/
+        return nueva_unidad;
+    }
     
 }
