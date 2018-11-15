@@ -12,13 +12,9 @@ public class Arquero extends Unidad {
 		this.vidaMaxima = 75;
 	}
 
-	public  Unidad crear_unidad() {
-		Arquero arquero_nuevo = new Arquero();
-		/*coste en oro, poblacion etc*/
-		return arquero_nuevo;
-	}
 
 	public void actuar(){
 
 	}
+
 }

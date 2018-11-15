@@ -13,12 +13,6 @@ public class Aldeano extends Unidad {
 		this.vidaMaxima = 50;
 	}
 
-	public  Unidad crear_unidad() {
-		Aldeano aldeano_nuevo = new Aldeano();
-		/*coste en oro, poblacion etc*/
-		return aldeano_nuevo;
-	}
-
 	public void reparar(Edificio edificio){
 
 		edificio.serReparado(this);

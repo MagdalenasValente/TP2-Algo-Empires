@@ -9,11 +9,8 @@ public class Espadachin extends Unidad {
 		super(100);
 		this.vidaMaxima = 100;
 	}
-	public  Unidad crear_unidad() {
-		Espadachin espadachin_nuevo = new Espadachin();
-		/*coste en oro, poblacion etc*/
-		return espadachin_nuevo;
-	}
+
+
 	public void actuar(){
 
 	}
