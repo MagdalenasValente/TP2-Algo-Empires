@@ -1,3 +1,5 @@
+package vida;
+
 import excepciones.VidaInvalidaException;
 import excepciones.VidaLlenaException;
 

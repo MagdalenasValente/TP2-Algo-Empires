@@ -1,6 +1,7 @@
 import excepciones.VidaInvalidaException;
 import excepciones.VidaLlenaException;
 import org.junit.Test;
+import vida.Vida;
 
 import static org.junit.Assert.*;
 
