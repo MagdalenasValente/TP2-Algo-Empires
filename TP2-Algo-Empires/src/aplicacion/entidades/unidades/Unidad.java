@@ -7,7 +7,7 @@ import java.awt.Point;
 public abstract class Unidad extends Entidad {
 
 	public Unidad(int vida) {
-		super(vida);
+		super(vida, new Point(1,1	));
 	}
 	void desplazarse(Point direccion) {
 	}//se podria crear una clase direccion

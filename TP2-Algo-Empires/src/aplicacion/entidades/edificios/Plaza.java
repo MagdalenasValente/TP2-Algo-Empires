@@ -9,18 +9,7 @@ public class Plaza extends Edificio {
 	private Point tamanio;
 
     public Plaza() {
-        super(450);
-        this.tamanio = new Point(2,2);
-    }
-
-    @Override
-    public int vida() {
-        return this.vida;
-    }
-    
-    @Override
-    public Point verTamanio() {
-    	return this.tamanio;
+        super(450, new Point(2,2));
     }
 
     @Override

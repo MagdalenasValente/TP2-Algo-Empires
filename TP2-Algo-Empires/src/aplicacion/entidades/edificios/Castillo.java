@@ -6,23 +6,11 @@ import entidades.unidades.Unidad;
 import java.awt.Point;
 
 public class Castillo extends Edificio{
-    private int vida;
+
     private Point tamanio;
 
     public Castillo() {
-    	super(1000);
-        this.tamanio = new Point(4,4);
-    }
-
-    @Override
-    public int vida(){
-        return this.vida;
-    }
-
-
-
-    public Point vertamanio() {
-    	return this.tamanio;
+    	super(1000, new Point(4,4));
     }
 
 
