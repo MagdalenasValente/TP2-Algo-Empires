@@ -7,10 +7,11 @@ import java.awt.Point;
 
 public class Castillo extends Edificio{
 
-    private Point tamanio;
+    private int vidaMaxima;
 
     public Castillo() {
     	super(1000, new Point(4,4));
+    	this.vidaMaxima = 1000;
     }
 
 
@@ -19,5 +20,15 @@ public class Castillo extends Edificio{
         Unidad nueva_unidad = unidad.crear_unidad();
         /*aca estaria el posicionamiento en el terreno de la unidad*/
         return nueva_unidad;
+    }
+
+    @Override
+    public void serReparado(){
+        int vidaTrasReparacion = this.vida() + 15;
+        if(vidaTrasReparacion > this.vidaMaxima){
+            super.setVida(vidaMaxima);
+            return;
+        }
+        super.setVida(vidaTrasReparacion);
     }
 }

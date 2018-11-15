@@ -9,5 +9,9 @@ public abstract class Edificio extends Entidad {
 		super(vida, tamanio);
 	}
 	public abstract Unidad reclutar_unidad(Unidad unidad);
+	public abstract void serReparado();
+	public void setVida(int vida){
+	    super.setVida(vida);
+    }
 	
 }
