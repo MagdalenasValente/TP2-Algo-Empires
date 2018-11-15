@@ -93,7 +93,7 @@ public class MapaUnitTest {
     }
 
     @Test
-    public void moverAldeanoVariasVecesTerminaEnLaPosicionCorrecta(){
+    public void moverAldeanoVariasVecesTerminaEnLaPosicionCorrecta(){ //no se si dejar estos tests aca o ponerlos en aldeano
 	    Mapa mapa = new Mapa(40,40);
         Unidad aldeano = new Aldeano();
         mapa.colocar(new Point(20,20), aldeano);
@@ -104,4 +104,113 @@ public class MapaUnitTest {
         aldeano.desplazarse(derecha);
         assertEquals(aldeano.verPosicion(), new Point(21,22));
     }
+
+
+    @Test
+    public void moverAldeanoEnDiagonalArribaALaDerechaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(1,1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(21,21));
+    }
+
+    @Test
+    public void moverAldeanoEnDiagonalArribaALaIzquierdaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(-1,1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(19,21));
+    }
+
+    @Test
+    public void moverAldeanoEnDiagonalAbajoALaIzquierdaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(-1,-1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(19,19));
+    }
+
+    @Test
+    public void moverAldeanoEnDiagonalAbajoALaDerechaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(1,-1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(21,19));
+    }
+
+    @Test
+    public void moverAldeanoALaDerechaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(1,0);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(21,20));
+    }
+
+    @Test
+    public void moverAldeanoALaIzquierdaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(-1,0);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(19,20));
+    }
+
+    @Test
+    public void moverAldeanoHaciaAbajoTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(0,-1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(20,19));
+    }
+
+    @Test
+    public void moverAldeanoHaciaArribaTerminaEnLaPosicionCorrecta(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        mapa.colocar(new Point(20,20), aldeano);
+        Point direccion = new Point(0,1);
+        aldeano.desplazarse(direccion);
+        assertEquals(aldeano.verPosicion(), new Point(20,21));
+    }
+
+    @Test
+    public void moverAldeanoAUnaPosicionOcupadaLevantaEspacioOcupadoException(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        Castillo castillo = new Castillo();
+        mapa.colocar(new Point(21,19), castillo);
+        mapa.colocar(new Point(20,20), aldeano);
+        try{Point direccion = new Point(1,0);
+        }catch (EspacioOcupadoException e){
+            assert(true);
+        }
+    }
+
+    @Test
+    public void moverAldeanoAUnaPosicionOcupadaDejaAlAldeanoEnLaPosicionOriginal(){
+        Mapa mapa = new Mapa(40,40);
+        Unidad aldeano = new Aldeano();
+        Castillo castillo = new Castillo();
+        mapa.colocar(new Point(21,19), castillo);
+        mapa.colocar(new Point(20,20), aldeano);
+        try{Point direccion = new Point(1,0);
+        }catch (EspacioOcupadoException e){
+        }
+        assertEquals(aldeano.verPosicion(), new Point(20,20));
+    }
+
+
 }
