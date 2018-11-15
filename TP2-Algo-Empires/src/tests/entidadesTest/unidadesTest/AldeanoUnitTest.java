@@ -25,5 +25,4 @@ public class AldeanoUnitTest {
         aldeano.reparar(castillo);
         assertEquals(1000, castillo.vida());
     }
-
 }

@@ -1,6 +1,7 @@
 package mapa;
 
 import entidades.Entidad;
+import entidades.unidades.Unidad;
 import excepciones.EspacioOcupadoException;
 
 import java.awt.Point;
@@ -57,9 +58,26 @@ public class Mapa {
 				this.grilla.put(new Point(coordenadaEnX + i,coordenadaEnY +j), entidad);	//la esquina inferior izquierda de la entidad se coloca en la posicion seleccionada
 			}
 		}
+		entidad.setMapa(this);
+		entidad.setPosicion(coordenadas);
 	}
 
 	public boolean estaOcupado(Point coordenadas) {
 		return this.grilla.containsKey(coordenadas);
 	}
+
+    public void mover(Unidad unidad, Point coordenadas, Point direccion) {
+        int direccionEnX = (int) direccion.getX();
+        int direccionEnY = (int) direccion.getY();
+        int coordenadaEnX = (int)coordenadas.getX();
+        int coordenadaEnY = (int)coordenadas.getY();
+        Point posicionNueva = new Point(coordenadaEnX + direccionEnX, coordenadaEnY + direccionEnY);
+        try {
+            this.colocar(posicionNueva, unidad);
+        }catch (RuntimeException e){
+            return;
+        }
+
+
+    }
 }
