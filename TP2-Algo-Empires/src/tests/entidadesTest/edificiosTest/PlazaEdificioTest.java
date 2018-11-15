@@ -18,9 +18,8 @@ public class PlazaEdificioTest {
 
     @Test
     public void plazaCreaUnidadAldeano(){
-        Aldeano aldeano_dummy = new Aldeano();
         Edificio plaza = new Plaza();
-        Unidad aldeano = plaza.reclutar_unidad(aldeano_dummy);
+        Unidad aldeano = plaza.crearAldeano();
         assertEquals(aldeano.vida(), 50);
     }
     /*Preguntarle al corrector si es nesesario restringir las unidades que se pueden reclutar y hacer pruevas de intentar reclutar unidades invalidas*/
