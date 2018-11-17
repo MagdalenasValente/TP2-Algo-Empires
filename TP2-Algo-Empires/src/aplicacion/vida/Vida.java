@@ -20,12 +20,20 @@ public class Vida {
     }
 
     public boolean regenerarVida(int puntosDeVida){
-        if (fullVida()){
+        if (fullVida() || puntosDeVida < 0){
             return false;
         }
         this.vidaActual = this.vidaActual+ puntosDeVida;
         if(this.vidaActual > this.vidaMaxima){ this.vidaActual = vidaMaxima;}
         return true;
+    }
+
+    public boolean quitarVida(int puntosDeVida){
+        vidaActual = vidaActual - puntosDeVida;
+        if (vidaActual <= 0){
+            return true;
+        }
+        return false;
     }
 
     public void setVida(int vida){

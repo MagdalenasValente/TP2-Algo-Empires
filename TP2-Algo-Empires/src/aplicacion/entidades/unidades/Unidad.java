@@ -29,6 +29,11 @@ public abstract class Unidad extends Entidad {
         throw new NoPuedeRepararException();
     }
 
+    public void esAtacado(int[] ataque){
+	    if(vida.quitarVida(ataque[0])){
+	        /* si da true la entidad murio */
+        };
+    }
 
     private boolean direccionUnitariaEsValida(Point direccion){
 	    return (-1 <= direccion.getX() && direccion.getX() <= 1 && -1 <= direccion.getY() && direccion.getY() <= 1);

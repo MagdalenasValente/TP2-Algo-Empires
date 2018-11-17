@@ -1,5 +1,6 @@
 package entidades;
 
+import habilidades.Habilidad;
 import mapa.Mapa;
 
 import vida.Vida;
@@ -8,10 +9,11 @@ import java.awt.Point;
 
 public abstract class Entidad{
 
-    private Vida vida;
+    protected Vida vida;
 	private Point tamanio;
 	private Point posicion;
     private Mapa mapa;
+    protected Habilidad[] habilidades;
 
     public Mapa getMapa(){
         return this.mapa;
@@ -38,6 +40,8 @@ public abstract class Entidad{
     public void repararVida(int valor){
     	this.vida.regenerarVida(valor);
 	}
+
+	public void esAtacado(int[] ataque){}
 
 	public void setPosicion(Point posicion){
 	    this.posicion = posicion;

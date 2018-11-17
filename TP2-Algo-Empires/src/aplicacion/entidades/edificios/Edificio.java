@@ -36,8 +36,16 @@ public abstract class Edificio extends Entidad {
         }
     }
 	public void setVida(int vida){
+    	/*debe ser borrado*/
 	    super.setVida(vida);
     }
+
+
+	public void esAtacado(int[] ataque){
+		if(vida.quitarVida(ataque[1])){
+			/* si da true la entidad murio */
+		};
+	}
 
 
 	public Unidad crearAldeano(){
