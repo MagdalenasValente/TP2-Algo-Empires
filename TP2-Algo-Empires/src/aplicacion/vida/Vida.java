@@ -29,8 +29,9 @@ public class Vida {
     }
 
     public boolean quitarVida(int puntosDeVida){
-        vidaActual = vidaActual - puntosDeVida;
-        if (vidaActual <= 0){
+        this.vidaActual = this.vidaActual - puntosDeVida;
+        if (this.vidaActual <= 0){
+            this.vidaActual = 0;
             return true;
         }
         return false;

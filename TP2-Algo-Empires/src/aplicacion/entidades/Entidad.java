@@ -13,7 +13,7 @@ public abstract class Entidad{
 	private Point tamanio;
 	private Point posicion;
     private Mapa mapa;
-    protected Habilidad[] habilidades;
+    //protected Habilidad[] habilidades;
 
     public Mapa getMapa(){
         return this.mapa;
@@ -41,7 +41,8 @@ public abstract class Entidad{
     	this.vida.regenerarVida(valor);
 	}
 
-	public void esAtacado(int[] ataque){}
+	/*public abstract void esAtacado(int[] ataque);*/
+	public abstract void esAtacado(int unidad, int edificio);
 
 	public void setPosicion(Point posicion){
 	    this.posicion = posicion;

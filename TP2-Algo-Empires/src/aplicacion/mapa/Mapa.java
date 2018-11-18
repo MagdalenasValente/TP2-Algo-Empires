@@ -3,6 +3,7 @@ package mapa;
 import entidades.Entidad;
 import entidades.unidades.Unidad;
 import excepciones.EspacioOcupadoException;
+import excepciones.UbicacionDeAtaqueVaciaException;
 
 import java.awt.Point;
 import java.util.*;
@@ -80,4 +81,27 @@ public class Mapa {
 
 
     }
+
+    public boolean estaEnRango(Point objetivoCoordenadas, Point atacanteCoordenadas, int atacanteRango){
+		if (!this.estaOcupado(objetivoCoordenadas)){
+			throw new UbicacionDeAtaqueVaciaException();
+		}
+		int objetivoCoordenadaEnX = (int) objetivoCoordenadas.getX();
+		int objetivoCoordenadaEnY = (int) objetivoCoordenadas.getY();
+		int atacanteCoordenadaEnX = (int) atacanteCoordenadas.getX();
+		int atacanteCoordenadaEnY = (int) atacanteCoordenadas.getY();
+		//extremos
+		int extremo_superior_de_rango = atacanteCoordenadaEnY + atacanteRango;
+		int extremo_inferior_de_rango = atacanteCoordenadaEnY - atacanteRango;
+		int extremo_derecho_de_rango = atacanteCoordenadaEnX + atacanteRango;
+		int extremo_izquierdo_de_rango = atacanteCoordenadaEnX - atacanteRango;
+		//calculos bool
+		boolean entreElRengoHorizontal = (extremo_derecho_de_rango >= objetivoCoordenadaEnX) && (extremo_izquierdo_de_rango <= objetivoCoordenadaEnX);
+		boolean entreElRengoVertical = (extremo_superior_de_rango >= objetivoCoordenadaEnY) && (extremo_inferior_de_rango <= objetivoCoordenadaEnY);
+		return (entreElRengoHorizontal && entreElRengoVertical);
+	}
+
+	public Entidad entidadQueOcupaLaPoscicion (Point coordenadas){
+		return this.grilla.get(coordenadas);
+	}
 }

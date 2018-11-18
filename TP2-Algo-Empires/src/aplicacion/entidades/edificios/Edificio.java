@@ -41,8 +41,8 @@ public abstract class Edificio extends Entidad {
     }
 
 
-	public void esAtacado(int[] ataque){
-		if(vida.quitarVida(ataque[1])){
+	public void esAtacado(int unused, int ataque){
+		if(vida.quitarVida(ataque)){
 			/* si da true la entidad murio */
 		};
 	}
