@@ -1,5 +1,8 @@
 import java.awt.Point;
 
+import entidades.unidades.Arquero;
+import entidades.unidades.Espadachin;
+import excepciones.UbicacionDeAtaqueVaciaException;
 import mapa.Mapa;
 import entidades.Entidad;
 import entidades.edificios.Castillo;
@@ -210,6 +213,89 @@ public class MapaUnitTest {
         }catch (EspacioOcupadoException e){
         }
         assertEquals(aldeano.verPosicion(), new Point(20,20));
+    }
+
+    @Test
+    public void ochoArquerosDeRango3AtacaAUnaUnidadEnSuRango(){
+        Mapa mapa = new Mapa(40,40);
+        Entidad Espadachin = new Espadachin();
+        int valorDeCoordenadaObjetivo = 20;
+        int rango = 3;
+        int menorPosible = valorDeCoordenadaObjetivo - rango;
+        int mayorPosible = valorDeCoordenadaObjetivo + rango;
+        Point obejetivo = new Point(valorDeCoordenadaObjetivo,valorDeCoordenadaObjetivo);
+        mapa.colocar(obejetivo, Espadachin);
+        Point atacante1 = new Point(menorPosible,valorDeCoordenadaObjetivo);
+        Point atacante2 = new Point(mayorPosible,valorDeCoordenadaObjetivo);
+        Point atacante3 = new Point(valorDeCoordenadaObjetivo,menorPosible);
+        Point atacante4 = new Point(valorDeCoordenadaObjetivo,mayorPosible);
+        Point atacante5 = new Point(menorPosible,menorPosible);
+        Point atacante6 = new Point(menorPosible,mayorPosible);
+        Point atacante7 = new Point(mayorPosible,menorPosible);
+        Point atacante8 = new Point(mayorPosible,mayorPosible);
+        assert (mapa.estaEnRango(obejetivo,atacante1,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante2,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante3,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante4,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante5,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante6,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante7,rango));
+        assert (mapa.estaEnRango(obejetivo,atacante8,rango));
+    }
+    @Test
+    public void ochoArquerosDeRango3AtacaAUnaUnidadFueraFueraSuRango(){
+        Mapa mapa = new Mapa(40,40);
+        Entidad Espadachin = new Espadachin();
+        int valorDeCoordenadaObjetivo = 20;
+        int rango = 3;
+        int menorPosible = valorDeCoordenadaObjetivo - (rango +1);
+        int mayorPosible = valorDeCoordenadaObjetivo + (rango +1);
+        Point obejetivo = new Point(valorDeCoordenadaObjetivo,valorDeCoordenadaObjetivo);
+        mapa.colocar(obejetivo, Espadachin);
+        Point atacante1 = new Point(menorPosible,valorDeCoordenadaObjetivo);
+        Point atacante2 = new Point(mayorPosible,valorDeCoordenadaObjetivo);
+        Point atacante3 = new Point(valorDeCoordenadaObjetivo,menorPosible);
+        Point atacante4 = new Point(valorDeCoordenadaObjetivo,mayorPosible);
+        Point atacante5 = new Point(menorPosible,menorPosible);
+        Point atacante6 = new Point(menorPosible,mayorPosible);
+        Point atacante7 = new Point(mayorPosible,menorPosible);
+        Point atacante8 = new Point(mayorPosible,mayorPosible);
+        assert (!mapa.estaEnRango(obejetivo,atacante1,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante2,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante3,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante4,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante5,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante6,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante7,rango));
+        assert (!mapa.estaEnRango(obejetivo,atacante8,rango));
+    }
+    @Test
+    public void cuandoSePideAtacarUnaCoordenadaVaciaLanzaUnaExcepcionDeUbicacionDeAtaqueVacia(){
+        Mapa mapa = new Mapa(40,40);
+        int valorDeCoordenadaObjetivo = 20;
+        int rango = 3;
+        int menorPosible = valorDeCoordenadaObjetivo - rango;
+        Point obejetivo = new Point(valorDeCoordenadaObjetivo,valorDeCoordenadaObjetivo);
+        Point atacante1 = new Point(menorPosible,valorDeCoordenadaObjetivo);
+        try {
+            mapa.estaEnRango(obejetivo,atacante1,rango);
+        }catch (UbicacionDeAtaqueVaciaException e){
+            assert true;
+        }
+    }
+    @Test
+    public void sePideLaEntidadQueOcupaUnLugarEnElMapaYEsteSeDevuelve(){
+        Mapa mapa = new Mapa(40,40);
+        int valorDeCoordenadaObjetivo = 20;
+        Point obejetivo1 = new Point(valorDeCoordenadaObjetivo,valorDeCoordenadaObjetivo);
+        Point obejetivo2 = new Point(valorDeCoordenadaObjetivo+1,valorDeCoordenadaObjetivo);
+        Entidad Espadachin1 = new Espadachin();
+        Entidad Espadachin2 = new Espadachin();
+        mapa.colocar(obejetivo1, Espadachin1);
+        mapa.colocar(obejetivo2, Espadachin2);
+        Entidad espadachin = mapa.entidadQueOcupaLaPoscicion(obejetivo1);
+        assert (espadachin == Espadachin1);
+        assert (espadachin != Espadachin2);
     }
 
 
