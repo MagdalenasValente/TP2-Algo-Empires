@@ -1,5 +1,6 @@
 import java.awt.Point;
 
+import entidades.edificios.Cuartel;
 import entidades.unidades.Arquero;
 import entidades.unidades.Espadachin;
 import excepciones.UbicacionDeAtaqueVaciaException;
@@ -289,13 +290,42 @@ public class MapaUnitTest {
         int valorDeCoordenadaObjetivo = 20;
         Point obejetivo1 = new Point(valorDeCoordenadaObjetivo,valorDeCoordenadaObjetivo);
         Point obejetivo2 = new Point(valorDeCoordenadaObjetivo+1,valorDeCoordenadaObjetivo);
-        Entidad Espadachin1 = new Espadachin();
-        Entidad Espadachin2 = new Espadachin();
-        mapa.colocar(obejetivo1, Espadachin1);
-        mapa.colocar(obejetivo2, Espadachin2);
+        Entidad espadachin1 = new Espadachin();
+        Entidad espadachin2 = new Espadachin();
+        mapa.colocar(obejetivo1, espadachin1);
+        mapa.colocar(obejetivo2, espadachin2);
         Entidad espadachin = mapa.entidadQueOcupaLaPoscicion(obejetivo1);
-        assert (espadachin == Espadachin1);
-        assert (espadachin != Espadachin2);
+        assert (espadachin == espadachin1);
+        assert (espadachin != espadachin2);
+    }
+
+
+    @Test
+    public void muereUnEspadachinYEsteDesapareceDelMapa(){
+        Mapa mapa = new Mapa(40,40);
+        Entidad espadachin = new Espadachin();
+        int ubicacion = 20;
+        Point obejetivo = new Point(ubicacion,ubicacion);
+        mapa.colocar(obejetivo, espadachin);
+        Entidad entidadEnUbicacion1 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
+        assert (espadachin == entidadEnUbicacion1);
+        espadachin.esAtacado(10000,0);
+        Entidad entidadEnUbicacion2 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
+        assert (null == entidadEnUbicacion2);
+    }
+
+    @Test
+    public void muereUnCuartelDeTamanio2x2YEsteDesapareceDelMapa(){
+        Mapa mapa = new Mapa(40,40);
+        Entidad cuartel = new Cuartel();
+        int ubicacion = 20;
+        Point obejetivo = new Point(ubicacion,ubicacion);
+        mapa.colocar(obejetivo, cuartel);
+        Entidad entidadEnUbicacion1 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
+        assert (cuartel == entidadEnUbicacion1);
+        cuartel.esAtacado(0,10000);
+        Entidad entidadEnUbicacion2 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
+        assert (null == entidadEnUbicacion2);
     }
 
 
