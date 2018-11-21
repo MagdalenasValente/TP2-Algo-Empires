@@ -20,13 +20,13 @@ public class CuartelEdificioTest {
 
     @Test
     public void cuartelCreaUnidadEspadachin(){
-        Edificio cuartel = new Cuartel();
+        Cuartel cuartel = new Cuartel();
         Unidad espadachin = cuartel.crearEspadachin();
         assertEquals(espadachin.vida(), 100);
     }
     @Test
     public void cuartelCreaUnidadArquero(){
-        Edificio cuartel = new Cuartel();
+        Cuartel cuartel = new Cuartel();
         Unidad arquero = cuartel.crearArquero();
         assertEquals(arquero.vida(), 75);
     }

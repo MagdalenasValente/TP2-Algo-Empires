@@ -17,7 +17,7 @@ public class CastilloEdificioTest {
 
     @Test
     public void castilloCreaUnidadArmaDeAsedio(){
-        Edificio castillo = new Castillo();
+        Castillo castillo = new Castillo();
 
         Unidad asedio = castillo.crearAsedio();
         assertEquals(asedio.vida(), 150);/*encontrar otra manera de verificar que sea la unidad correspondiente*/
@@ -25,7 +25,7 @@ public class CastilloEdificioTest {
 
     @Test
     public void castilloSetearVida(){
-        Edificio castillo = new Castillo();
+        Castillo castillo = new Castillo();
 
         Unidad asedio = castillo.crearAsedio();
         asedio.setVida(50);

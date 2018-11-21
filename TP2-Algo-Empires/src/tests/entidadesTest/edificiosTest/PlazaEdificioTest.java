@@ -18,7 +18,7 @@ public class PlazaEdificioTest {
 
     @Test
     public void plazaCreaUnidadAldeano(){
-        Edificio plaza = new Plaza();
+        Plaza plaza = new Plaza();
         Unidad aldeano = plaza.crearAldeano();
         assertEquals(aldeano.vida(), 50);
     }
