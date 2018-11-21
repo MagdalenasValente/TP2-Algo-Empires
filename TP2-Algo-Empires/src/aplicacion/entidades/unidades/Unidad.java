@@ -9,7 +9,7 @@ import mapa.Mapa;
 import java.awt.Point;
 
 public abstract class Unidad extends Entidad {
-    private Mapa mapa;
+    //private Mapa mapa;
     private Point coordenadas;
 
 	public Unidad(int vida) {
@@ -33,7 +33,7 @@ public abstract class Unidad extends Entidad {
     public void esAtacado(int ataque,int unused){
 	    boolean esta_muerto = this.vida.quitarVida(ataque);
 	    if(esta_muerto){
-	        /* si da true la entidad murio */
+            mapa.entidadHaMuerto(this);
         }
 	    return;
     }

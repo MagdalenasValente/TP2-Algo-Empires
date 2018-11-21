@@ -12,7 +12,7 @@ public abstract class Entidad{
     protected Vida vida;
 	private Point tamanio;
 	private Point posicion;
-    private Mapa mapa;
+    protected Mapa mapa;
     //protected Habilidad[] habilidades;
 
     public Mapa getMapa(){

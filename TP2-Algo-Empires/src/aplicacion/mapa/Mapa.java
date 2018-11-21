@@ -44,6 +44,24 @@ public class Mapa {
 		return true;
 	}
 
+	private boolean rrellenarLugarDelMapa(Point ubicacion, Point tamanio, Entidad ocuparLugar){
+		int coordenadaEnX = (int)ubicacion.getX();
+		int coordenadaEnY = (int)ubicacion.getY();
+		int tamanioEnX = (int)tamanio.getX();
+		int tamanioEnY = (int)tamanio.getY();
+		if (coordenadaEnX + tamanioEnX > ancho || coordenadaEnY + tamanioEnY > alto || coordenadaEnX * coordenadaEnY < 0){
+			/* caso de que la coordenadas esten fuera del mapa */
+			return false;
+		}
+		for(int i = 0; i<tamanioEnX; i++) {
+			for(int j = 0; j<tamanioEnY; j++) {
+				this.grilla.remove(new Point(coordenadaEnX + i,coordenadaEnY +j));
+				this.grilla.put(new Point(coordenadaEnX + i,coordenadaEnY +j), ocuparLugar);	//la esquina inferior izquierda de la entidad se coloca en la posicion seleccionada
+			}
+		}
+		return true;
+	}
+
 	public void colocar(Point coordenadas, Entidad entidad) {
 		Point tamanioDeLaEntidad = entidad.verTamanio();
 		if(!this.verificarQueNoColisiona(coordenadas, tamanioDeLaEntidad)) {
@@ -52,13 +70,15 @@ public class Mapa {
 		if(!this.verificarCoordenadas(coordenadas, tamanioDeLaEntidad)) {
 			return;/*crear error*/
 		}
+		rrellenarLugarDelMapa(coordenadas,tamanioDeLaEntidad,entidad);
+		/*
 		int coordenadaEnX = (int)coordenadas.getX();
 		int coordenadaEnY = (int)coordenadas.getY();
 		for(int i = 0; i<(int)tamanioDeLaEntidad.getX(); i++) {
 			for(int j = 0; j<(int)tamanioDeLaEntidad.getY(); j++) {
 				this.grilla.put(new Point(coordenadaEnX + i,coordenadaEnY +j), entidad);	//la esquina inferior izquierda de la entidad se coloca en la posicion seleccionada
 			}
-		}
+		}*/
 		entidad.setMapa(this);
 		entidad.setPosicion(coordenadas);
 	}
@@ -103,5 +123,19 @@ public class Mapa {
 
 	public Entidad entidadQueOcupaLaPoscicion (Point coordenadas){
 		return this.grilla.get(coordenadas);
+	}
+
+	public void entidadHaMuerto (Entidad entidad){
+		Point ubicacion = entidad.verPosicion();
+		Point tamanioDeLaEntidad = entidad.verTamanio();
+
+		rrellenarLugarDelMapa(ubicacion,tamanioDeLaEntidad,null);
+		/*int coordenadaEnX = (int)ubicacion.getX();
+		int coordenadaEnY = (int)ubicacion.getY();
+		for(int i = 0; i<(int)tamanioDeLaEntidad.getX(); i++) {
+			for(int j = 0; j<(int)tamanioDeLaEntidad.getY(); j++) {
+				this.grilla.remove(new Point(coordenadaEnX + i,coordenadaEnY +j));
+			}
+		}*/
 	}
 }

@@ -43,7 +43,7 @@ public abstract class Edificio extends Entidad {
 
 	public void esAtacado(int unused, int ataque){
 		if(vida.quitarVida(ataque)){
-			/* si da true la entidad murio */
+			mapa.entidadHaMuerto(this);
 		};
 	}
 
