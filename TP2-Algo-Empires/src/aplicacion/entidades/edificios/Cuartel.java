@@ -1,39 +1,48 @@
 package entidades.edificios;
 
+import entidades.StrategyConstruible.Construido;
+import entidades.StrategyConstruible.StrategyConstruible;
+import entidades.StrategyConstruible.EnConstruccion;
 import entidades.unidades.Aldeano;
-import entidades.unidades.Arquero;
-import entidades.unidades.Espadachin;
-import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Cuartel extends Edificio {
-    private int vidaMaxima;
+public class Cuartel extends Edificio implements Construible{
 
+    private StrategyConstruible strategy;
 
 
     public Cuartel() {
         super(250, new Point(2,2),50);
-        this.vidaMaxima = 250;
+        this.strategy = new EnConstruccion(this);
     }
 
+    public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
+
+
+    @Override
+    public boolean construido() {
+        return this.strategy.construido();
+    }
+
+    public void construirse(){
+        this.strategy.construirse();
+    }
 
     public Unidad crearArquero() {
 
-        //Unidad arquero=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
+        return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
 
-        return (new Arquero());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
     public Unidad crearEspadachin() {
 
-       // Unidad espadachin=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
+        return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
 
-        return (new Espadachin());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
@@ -41,7 +50,7 @@ public class Cuartel extends Edificio {
 
 
     public void actuar(){
-
+        this.strategy.actuar();
 
     }
 

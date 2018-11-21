@@ -1,9 +1,11 @@
 package entidades.unidades;
 
+import entidades.edificios.Cuartel;
 import entidades.edificios.Edificio;
-import entidades.unidades.StateAldeano.RecolectorOro;
-import entidades.unidades.StateAldeano.Reparador;
-import entidades.unidades.StateAldeano.StrategyAldeano;
+import entidades.unidades.StrategyAldeano.Constructor;
+import entidades.unidades.StrategyAldeano.RecolectorOro;
+import entidades.unidades.StrategyAldeano.Reparador;
+import entidades.unidades.StrategyAldeano.StrategyAldeano;
 
 public class Aldeano extends Unidad {
 
@@ -28,12 +30,13 @@ public class Aldeano extends Unidad {
 	}
 
 
-	public void construir(Edificio edificio){
+	public Cuartel construirCuartel(){
+		// Verificar q pueda construirlo en esa ubicacion
+		Cuartel edificio = new Cuartel();
+		this.setStrategy(new Constructor(edificio,this));
+		return edificio;
+	}
 
-	}
-    public void actuar(){
-		strategy.actuar( );
-	}
 
 	public int getOro(){
 		return this.oro;
@@ -41,5 +44,9 @@ public class Aldeano extends Unidad {
 
 	public void sumarOro(int oro){
 		this.oro +=oro;
+	}
+
+	public void actuar(){
+		strategy.actuar( );
 	}
 }
