@@ -19,16 +19,16 @@ public class ArqueroUnitTest {
 		assertEquals(arquero.vida(), 75);
 	}
 
-	@Test
-	public void ArqueroRepararCastilloLevantaNoPuedeRepararException(){
-		boolean lanzoLaExcepcion = false;
-		Unidad arquero = new Arquero();
-		Edificio castillo = new Castillo();
-		try {
-			arquero.reparar(castillo);
-		} catch (NoPuedeRepararException e) {
-			lanzoLaExcepcion = true;
-		}
-		assert(lanzoLaExcepcion);
-	}
+	//@Test
+	//public void ArqueroRepararCastilloLevantaNoPuedeRepararException(){
+	//	boolean lanzoLaExcepcion = false;
+	//	Unidad arquero = new Arquero();
+	//	Edificio castillo = new Castillo();
+	//	try {
+	//		arquero.reparar(castillo);
+	//	} catch (NoPuedeRepararException e) {
+	//		lanzoLaExcepcion = true;
+	//	}
+	//	assert(lanzoLaExcepcion);
+	//}
 }

@@ -17,22 +17,23 @@ public class Plaza extends Edificio {
 
     public Unidad crearAldeano() {
 
-        Unidad aldeano=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ALDEANO);
+        //Unidad aldeano=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ALDEANO);
 
-        return aldeano;
+        return (new Aldeano());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
 
 
-    @Override
     public void serConstruido(Aldeano aldeano) {
 
     }
 
-    public int actuar(){
-            return 0;
+
+
+    public void actuar(){
+
 
     }
     

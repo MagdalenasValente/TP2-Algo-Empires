@@ -18,17 +18,17 @@ public class AldeanoUnitTest {
 		assertEquals(aldeano.vida(), 50);
 	}
 
-	@Test
-    public void aldeanoRepararCastilloConTodaLaVidaLoDejaEn1000DeVida(){
-        Unidad aldeano = new Aldeano();
-        Edificio castillo = new Castillo();
-        castillo.setVida(500);
-        aldeano.reparar(castillo);
-        aldeano.actuar();
-        assertEquals(515, castillo.vida());
-        aldeano.actuar();
-        assertEquals(530, castillo.vida());
-    }
+//	@Test
+//    public void aldeanoRepararCastilloConTodaLaVidaLoDejaEn1000DeVida(){
+//        Unidad aldeano = new Aldeano();
+//        Edificio castillo = new Castillo();
+//        castillo.setVida(500);
+//        aldeano.reparar(castillo);
+//        aldeano.actuar();
+//       assertEquals(515, castillo.vida());
+//        aldeano.actuar();
+//        assertEquals(530, castillo.vida());
+//    }
 
 
     @Test

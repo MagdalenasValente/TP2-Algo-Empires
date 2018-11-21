@@ -19,18 +19,18 @@ public class ArmaDeAsedioUnitTest {
 		assertEquals(armaDeAsedio.vida(), 150);
 	}
 
-	@Test
-	public void ArmaRepararCastilloLevantaNoPuedeRepararException(){
-	    boolean lanzoLaExcepcion = false;
-		Unidad armaDeAsedio = new ArmaDeAsedio();
-		Edificio castillo = new Castillo();
-        try {
-            armaDeAsedio.reparar(castillo);
-        } catch (NoPuedeRepararException e) {
-            lanzoLaExcepcion = true;
-        }
-        assert(lanzoLaExcepcion);
-	}
+//	@Test
+//	public void ArmaRepararCastilloLevantaNoPuedeRepararException(){
+//	    boolean lanzoLaExcepcion = false;
+//		Unidad armaDeAsedio = new ArmaDeAsedio();
+//		Edificio castillo = new Castillo();
+    //    try {
+    //        armaDeAsedio.reparar(castillo);
+    //    } catch (NoPuedeRepararException e) {
+    //        lanzoLaExcepcion = true;
+    //    }
+    //    assert(lanzoLaExcepcion);
+	//}
 
 
 }

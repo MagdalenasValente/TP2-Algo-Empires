@@ -2,6 +2,7 @@ package entidades.edificios;
 
 
 import entidades.unidades.Aldeano;
+import entidades.unidades.ArmaDeAsedio;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 
@@ -20,9 +21,9 @@ public class Castillo extends Edificio{
 
     public Unidad crearAsedio() {
 
-        Unidad asedio=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);
+        //Unidad asedio=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);
 
-        return asedio;
+        return (new ArmaDeAsedio());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
@@ -34,8 +35,8 @@ public class Castillo extends Edificio{
 
     }
 
-    public int actuar(){
-        return 0;
+    public void actuar(){
+
 
     }
 

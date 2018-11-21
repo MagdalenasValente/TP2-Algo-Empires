@@ -1,6 +1,8 @@
 package entidades.edificios;
 
 import entidades.unidades.Aldeano;
+import entidades.unidades.Arquero;
+import entidades.unidades.Espadachin;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
@@ -20,26 +22,26 @@ public class Cuartel extends Edificio {
 
     public Unidad crearArquero() {
 
-        Unidad arquero=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
+        //Unidad arquero=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
 
-        return arquero;
+        return (new Arquero());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
     public Unidad crearEspadachin() {
 
-        Unidad espadachin=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
+       // Unidad espadachin=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
 
-        return espadachin;
+        return (new Espadachin());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
 
 
-    public int actuar(){
-        return 0;
+    public void actuar(){
+
 
     }
 

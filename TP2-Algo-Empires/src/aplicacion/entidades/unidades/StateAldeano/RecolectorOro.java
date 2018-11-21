@@ -2,14 +2,18 @@ package entidades.unidades.StateAldeano;
 
 import entidades.unidades.Aldeano;
 
-public class RecolectorOro implements StateAldeano {
+public class RecolectorOro implements StrategyAldeano {
 
-    @Override
-    public int juntarOro() {
-        return 20;
+    Aldeano aldeano;
+    public RecolectorOro (Aldeano aldeano){
+        this.aldeano = aldeano;
+    }
+
+    public void juntarOro() {
+        aldeano.sumarOro(20);
 
     }
-    public int actuar(Aldeano aldeano){
-        return juntarOro();
+    public void actuar(){
+        juntarOro();
     }
 }
