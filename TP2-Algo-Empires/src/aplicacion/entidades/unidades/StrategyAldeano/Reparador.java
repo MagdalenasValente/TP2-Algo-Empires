@@ -1,4 +1,4 @@
-package entidades.unidades.StateAldeano;
+package entidades.unidades.StrategyAldeano;
 
 import entidades.edificios.Edificio;
 import entidades.unidades.Aldeano;
@@ -15,13 +15,9 @@ public class Reparador implements StrategyAldeano {
 
 
     public void actuar(){
-
         edificio.repararse();
         if(edificio.fullVida()) {
             aldeano.setStrategy(new RecolectorOro(aldeano));
         }
-
-
-
     }
 }

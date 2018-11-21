@@ -1,4 +1,4 @@
-package entidades.unidades.StateAldeano;
+package entidades.unidades.StrategyAldeano;
 
 import entidades.unidades.Aldeano;
 
