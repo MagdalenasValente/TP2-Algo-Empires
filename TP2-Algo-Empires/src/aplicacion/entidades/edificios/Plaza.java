@@ -53,8 +53,8 @@ public class Plaza extends Edificio implements EdificioConstruible {
 
 
 
-    public int actuar(){
-        return 0;
+
+    public void actuar(){
+
     }
-    
 }

@@ -32,8 +32,8 @@ public class Castillo extends Edificio{
 
 
 
-    public int actuar(){
-        return 0;
+
+    public void actuar(){
 
     }
 

@@ -4,8 +4,8 @@ import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
 
 public interface EdificioConstruible {
 
-    void setStrategy(StrategyConstruible strategy);
-    boolean construido();
-    void construirse();
+    public void setStrategy(StrategyConstruible strategy);
+    public boolean construido();
+    public void construirse();
 
 }
