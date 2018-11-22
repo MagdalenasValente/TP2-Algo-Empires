@@ -23,9 +23,7 @@ public class Castillo extends Edificio {
 
     public Unidad crearAsedio() {
 
-        Unidad asedio=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);
-
-        return asedio;
+        return UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);;
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
