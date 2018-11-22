@@ -31,4 +31,20 @@ public class EspadachinUnitTest {
 		assert(lanzoLaExcepcion);
 	}
 
+	@Test
+	public void EspadachinAtacarCastilloCon1000DeVidaLeCausa15DeDanio(){
+		Espadachin espadachin = new Espadachin();
+		Castillo castillo = new Castillo();
+		espadachin.atacar(castillo);
+		assertEquals(985, castillo.vida());
+	}
+
+	@Test
+	public void EspadachinAtacarEspadachinCon100DeVidaLeCausa25DeDanio(){
+		Espadachin espadachin = new Espadachin();
+		Espadachin otroEspadachin = new Espadachin();
+		espadachin.atacar(otroEspadachin);
+		assertEquals(75, otroEspadachin.vida());
+	}
+
 }

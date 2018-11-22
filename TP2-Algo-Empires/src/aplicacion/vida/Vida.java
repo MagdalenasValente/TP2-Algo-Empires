@@ -28,6 +28,10 @@ public class Vida {
         return true;
     }
 
+    public void quitarVida(int cantidad){
+        this.vidaActual = this.vidaActual - cantidad;
+    }
+
     public void setVida(int vida){
         this.vidaActual=vida;
     }

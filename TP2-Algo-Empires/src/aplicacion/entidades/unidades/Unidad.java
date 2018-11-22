@@ -12,8 +12,8 @@ public abstract class Unidad extends Entidad {
     private Mapa mapa;
     private Point coordenadas;
 
-	public Unidad(int vida) {
-		super(vida, new Point(1,1	));
+	public Unidad(int vida, int danioAUnidades, int danioAEdificios) {
+		super(vida, new Point(1,1	), danioAUnidades, danioAEdificios);
 	}
 
 	public void desplazarse(Point direccion) {

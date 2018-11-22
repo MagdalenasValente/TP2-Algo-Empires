@@ -6,6 +6,7 @@ import entidades.Entidad;
 import entidades.edificios.Castillo;
 import entidades.edificios.Edificio;
 import entidades.unidades.Arquero;
+import entidades.unidades.Espadachin;
 import entidades.unidades.Unidad;
 import excepciones.NoPuedeRepararException;
 import org.junit.Test;
@@ -30,5 +31,21 @@ public class ArqueroUnitTest {
 			lanzoLaExcepcion = true;
 		}
 		assert(lanzoLaExcepcion);
+	}
+
+	@Test
+	public void ArqueroAtacarCastilloCon1000DeVidaLeCausa10DeDanio(){
+		Arquero arquero = new Arquero();
+		Castillo castillo = new Castillo();
+		arquero.atacar(castillo);
+		assertEquals(990, castillo.vida());
+	}
+
+	@Test
+	public void ArqueroAtacarEspadachinCon100DeVidaLeCausa15DeDanio(){
+		Arquero arquero = new Arquero();
+		Espadachin espadachin = new Espadachin();
+		arquero.atacar(espadachin);
+		assertEquals(85, espadachin.vida());
 	}
 }

@@ -12,7 +12,7 @@ public class Aldeano extends Unidad {
 	private StateAldeano state;
 
 	public Aldeano() {
-		super(50);
+		super(50, 0, 0);
 		this.oro = 0;
 		this.state = new RecolectorOro();
 	}

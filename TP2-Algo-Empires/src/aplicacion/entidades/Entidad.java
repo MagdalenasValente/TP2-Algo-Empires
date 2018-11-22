@@ -1,5 +1,7 @@
 package entidades;
 
+import entidades.edificios.Edificio;
+import entidades.unidades.Unidad;
 import mapa.Mapa;
 
 import vida.Vida;
@@ -12,15 +14,19 @@ public abstract class Entidad{
 	private Point tamanio;
 	private Point posicion;
     private Mapa mapa;
+    private int danioAUnidades;
+    private int danioAEdificios;
 
     public Mapa getMapa(){
         return this.mapa;
     }
 
 
-	public Entidad(int vida, Point tamanio) {
+	public Entidad(int vida, Point tamanio, int danioAUnidades, int danioAEdificios) {
 		this.vida = new Vida(vida);
 		this.tamanio = tamanio;
+		this.danioAUnidades = danioAUnidades;
+		this.danioAEdificios = danioAEdificios;
 	}
 	public int vida() {
     	return this.vida.verVida();
@@ -52,4 +58,16 @@ public abstract class Entidad{
     }
 
     public abstract void actuar();
+
+    public void quitarVida(int cantidad){
+    	this.vida.quitarVida(cantidad);
+	}
+
+	public void atacar(Edificio edificio){
+    	edificio.quitarVida(danioAEdificios);
+	}
+
+	public void atacar(Unidad unidad){
+		unidad.quitarVida(danioAUnidades);
+	}
 }

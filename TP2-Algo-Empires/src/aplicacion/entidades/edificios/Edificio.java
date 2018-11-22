@@ -14,8 +14,8 @@ public abstract class Edificio extends Entidad {
 
     private int reparacion;
 
-	public Edificio(int vida, Point tamanio, int reparacion) {
-		super(vida, tamanio);
+	public Edificio(int vida, Point tamanio, int reparacion, int danioAUnidades, int danioAEdificios) {
+		super(vida, tamanio, danioAUnidades, danioAEdificios);
 		this.reparacion = reparacion;
 	}
 
@@ -39,18 +39,8 @@ public abstract class Edificio extends Entidad {
 	    super.setVida(vida);
     }
 
-
-	public Unidad crearAldeano(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearAsedio(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearArquero(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearEspadachin(){
-		throw new InvalidUnidadTipoException();
-	}
+    public void quitarVida(int cantidad){
+        super.quitarVida(cantidad);
+    }
 
 }

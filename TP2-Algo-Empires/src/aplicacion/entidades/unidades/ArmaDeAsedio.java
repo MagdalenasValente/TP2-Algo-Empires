@@ -8,7 +8,7 @@ public class ArmaDeAsedio extends Unidad {
 
 
 	public ArmaDeAsedio() {
-		super(150);
+		super(150, 0, 75);
 		this.vidaMaxima = 1000;
 	}
 

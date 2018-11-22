@@ -21,7 +21,7 @@ public class vidaUnitTest {
         assertEquals(vida.verVida(), 100);
     }
 
-    @Test
+    /*@Test
     public void regenerarVidaConLaVidaLlenaLevantaVidaLlenaException() {
         Vida vida = new Vida(100, 100);
         boolean lanzoLaExcepcion = false;
@@ -31,7 +31,7 @@ public class vidaUnitTest {
             lanzoLaExcepcion = true;
         }
         assert(lanzoLaExcepcion);
-    }
+    }*/
 
     @Test
     public void crearVidaConMasVidaActualQueVidaMaximaLevantaVidaInvalidaException() {

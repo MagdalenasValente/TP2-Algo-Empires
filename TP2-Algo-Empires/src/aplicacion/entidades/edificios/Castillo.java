@@ -1,6 +1,8 @@
 package entidades.edificios;
 
 
+import entidades.Atacable;
+import entidades.Atacante;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
@@ -10,11 +12,11 @@ import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Castillo extends Edificio{
+public class Castillo extends Edificio {
 
     // se puede abstraer en un factory, o al instanciar la clase.
     public Castillo() {
-    	super(1000, new Point(4,4), 15);
+    	super(1000, new Point(4,4), 15, 20, 20);
 
     }
 

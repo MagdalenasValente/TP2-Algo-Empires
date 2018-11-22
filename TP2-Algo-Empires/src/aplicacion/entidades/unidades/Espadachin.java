@@ -6,7 +6,7 @@ public class Espadachin extends Unidad {
 	private int vidaMaxima;
 
 	public Espadachin() {
-		super(100);
+		super(100, 25, 15);
 		this.vidaMaxima = 100;
 	}
 

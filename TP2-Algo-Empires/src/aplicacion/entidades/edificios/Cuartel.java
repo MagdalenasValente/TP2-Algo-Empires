@@ -14,7 +14,7 @@ public class Cuartel extends Edificio {
     public int reparacion = 15; // se puede abstraer en un factory, o al instanciar la clase.
 
     public Cuartel() {
-        super(250, new Point(2,2),15);
+        super(250, new Point(2,2),15, 0, 0);
         this.vidaMaxima = 250;
     }
 

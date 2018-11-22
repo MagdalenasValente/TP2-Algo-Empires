@@ -13,7 +13,7 @@ public class Plaza extends Edificio {
 
     public int reparacion = 15;
     public Plaza() {
-        super(450, new Point(2,2), 15);
+        super(450, new Point(2,2), 15, 0, 0);
         this.vidaMaxima = 450;
     }
 
