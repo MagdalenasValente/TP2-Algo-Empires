@@ -77,7 +77,7 @@ public class Aldeano extends Unidad {
 	// FIN METODOS ORO.
 	//////// MODO ACTUAR / TURNO
 	public int actuar(){
-		strategy.actuar( );
+		this.strategy.actuar( );
 		return 0;
 	}
 }
