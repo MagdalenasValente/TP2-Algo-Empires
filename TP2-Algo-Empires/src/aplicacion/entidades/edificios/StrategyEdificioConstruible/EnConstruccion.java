@@ -7,7 +7,7 @@ import entidades.unidades.Unidad;
 public class EnConstruccion implements StrategyConstruible {
 
 
-    Construible edificio;
+    private Construible edificio;
     private int contadorTurnos = 0;
 
     public EnConstruccion (Construible edificio){
@@ -15,14 +15,14 @@ public class EnConstruccion implements StrategyConstruible {
     }
 
     public void construirse() {
-        contadorTurnos++;
+        this.contadorTurnos++;
         if(construido()) {
-            edificio.setStrategy(new Construido());
+            this.edificio.setStrategy(new Construido());
         }
     }
 
     public boolean construido() {
-        return (contadorTurnos == 3);
+        return (this.contadorTurnos == 3);
     }
 
     public Unidad crearUnidad(UnidadTipo tipo) {

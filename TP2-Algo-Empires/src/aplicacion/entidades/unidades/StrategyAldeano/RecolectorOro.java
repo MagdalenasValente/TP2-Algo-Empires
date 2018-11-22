@@ -4,7 +4,7 @@ import entidades.unidades.Aldeano;
 
 public class RecolectorOro implements StrategyAldeano {
 
-    Aldeano aldeano;
+    private Aldeano aldeano;
     public RecolectorOro (Aldeano aldeano){
         this.aldeano = aldeano;
     }

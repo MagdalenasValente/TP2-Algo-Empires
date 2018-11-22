@@ -5,8 +5,8 @@ import entidades.unidades.Aldeano;
 
 public class Reparador implements StrategyAldeano {
 
-    Edificio edificio;
-    Aldeano aldeano;
+    private Edificio edificio;
+    private Aldeano aldeano;
 
     public Reparador (Edificio edificio, Aldeano aldeano){
         this.edificio = edificio;
@@ -15,9 +15,9 @@ public class Reparador implements StrategyAldeano {
 
 
     public void actuar(){
-        edificio.repararse();
-        if(edificio.fullVida()) {
-            aldeano.setStrategy(new RecolectorOro(aldeano));
+        this.edificio.repararse();
+        if(this.edificio.fullVida()) {
+            this.aldeano.setStrategy(new RecolectorOro(this.aldeano));
         }
     }
 }

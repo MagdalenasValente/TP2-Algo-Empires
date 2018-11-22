@@ -5,8 +5,8 @@ import entidades.unidades.Aldeano;
 
 public class Constructor implements StrategyAldeano {
 
-    Aldeano aldeano;
-    Construible edificio;
+    private Aldeano aldeano;
+    private Construible edificio;
 
     public Constructor (Construible edificio, Aldeano aldeano){
         this.edificio = edificio;
@@ -17,8 +17,8 @@ public class Constructor implements StrategyAldeano {
 
     public void actuar(){
         this.edificio.construirse();
-        if(edificio.construido()) {
-            aldeano.setStrategy(new RecolectorOro(aldeano));
+        if(this.edificio.construido()) {
+            this.aldeano.setStrategy(new RecolectorOro(this.aldeano));
         }
 
     }

@@ -5,7 +5,7 @@ import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
 import entidades.edificios.StrategyEdificioConstruible.EnConstruccion;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
-import entidades.unidades.StateAldeano.RecolectorOro;
+import entidades.unidades.StrategyAldeano.RecolectorOro;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;

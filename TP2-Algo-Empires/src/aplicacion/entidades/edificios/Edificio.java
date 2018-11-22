@@ -5,8 +5,8 @@ import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.InvalidUnidadTipoException;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.InvalidUnidadTipoException;
-import entidades.unidades.StateAldeano.RecolectorOro;
-import entidades.unidades.StateAldeano.Reparador;
+import entidades.unidades.StrategyAldeano.RecolectorOro;
+import entidades.unidades.StrategyAldeano.Reparador;
 import entidades.unidades.Unidad;
 import java.awt.Point;
 
@@ -21,10 +21,7 @@ public abstract class Edificio extends Entidad {
 
 
     public void repararse(){
-        this.repararVida(reparacion);
-        if(this.fullVida()) {
-            aldeano.setState(new RecolectorOro());
-        }
+        this.repararVida(this.reparacion);
     }
 	public void setVida(int vida){
     	/*debe ser borrado*/
