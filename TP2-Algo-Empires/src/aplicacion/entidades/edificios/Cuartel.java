@@ -39,8 +39,8 @@ public class Cuartel extends Edificio {
     }
 
 
-    public void actuar(){
-
+    public int actuar(){
+        return 0;
     }
 
     public void serConstruido(Aldeano aldeano) {

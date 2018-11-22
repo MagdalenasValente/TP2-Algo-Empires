@@ -34,8 +34,8 @@ public class Plaza extends Edificio {
 
     }
 
-    public void actuar(){
-
+    public int actuar(){
+        return 0;
     }
     
 }

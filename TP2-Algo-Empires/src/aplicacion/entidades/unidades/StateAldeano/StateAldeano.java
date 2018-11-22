@@ -4,7 +4,7 @@ import entidades.unidades.Aldeano;
 
 public interface StateAldeano {
 
-    public int juntarOro();
+    int juntarOro();
 
-    public int actuar(Aldeano aldeano);
+    int actuar(Aldeano aldeano);
 }

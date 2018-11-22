@@ -11,7 +11,7 @@ public class Espadachin extends Unidad {
 	}
 
 
-	public void actuar(){
-
+	public int actuar(){
+		return 0;
 	}
 }
