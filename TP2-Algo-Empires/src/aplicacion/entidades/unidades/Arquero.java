@@ -1,7 +1,5 @@
 package entidades.unidades;
 
-import entidades.Atacante;
-import entidades.Atacable;
 import entidades.edificios.Castillo;
 
 
