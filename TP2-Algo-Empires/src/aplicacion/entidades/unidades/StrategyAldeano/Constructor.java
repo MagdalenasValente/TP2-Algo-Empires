@@ -1,14 +1,14 @@
 package entidades.unidades.StrategyAldeano;
 
-import entidades.edificios.Construible;
+import entidades.edificios.EdificioConstruible;
 import entidades.unidades.Aldeano;
 
 public class Constructor implements StrategyAldeano {
 
     Aldeano aldeano;
-    Construible edificio;
+    EdificioConstruible edificio;
 
-    public Constructor (Construible edificio, Aldeano aldeano){
+    public Constructor (EdificioConstruible edificio, Aldeano aldeano){
         this.edificio = edificio;
         this.aldeano = aldeano;
     }

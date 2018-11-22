@@ -1,16 +1,16 @@
 package entidades.edificios.StrategyEdificioConstruible;
 
-import entidades.edificios.Construible;
+import entidades.edificios.EdificioConstruible;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
 
 public class EnConstruccion implements StrategyConstruible {
 
 
-    Construible edificio;
+    EdificioConstruible edificio;
     private int contadorTurnos = 0;
 
-    public EnConstruccion (Construible edificio){
+    public EnConstruccion (EdificioConstruible edificio){
         this.edificio = edificio;
     }
 

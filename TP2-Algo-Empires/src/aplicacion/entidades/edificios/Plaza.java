@@ -7,7 +7,7 @@ import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Plaza extends Edificio implements Construible {
+public class Plaza extends Edificio implements EdificioConstruible {
 
     private StrategyConstruible strategy;
 
@@ -16,8 +16,25 @@ public class Plaza extends Edificio implements Construible {
         strategy = new EnConstruccion(this);
     }
 
-    public void construirse(){}
 
+    // SET STRATEGY
+    public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
+
+    // FIN SET STRATEGY
+
+    // METODOS DE CONSTRUCCION
+
+    public boolean construido() {
+        return this.strategy.construido();
+    }
+
+    public void construirse(){
+        this.strategy.construirse();
+    }
+    // FIN METODOS DE CONSTRUCCION
+
+
+    // METODO CREAR UNIDAD
     public Unidad crearAldeano() {
 
         return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ALDEANO);
@@ -30,11 +47,8 @@ public class Plaza extends Edificio implements Construible {
 
     }
 
-    public boolean construido() {
-        return this.strategy.construido();
-    }
+    // FIN METODO CREAR UNIDAD
 
-    public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
 
 
 

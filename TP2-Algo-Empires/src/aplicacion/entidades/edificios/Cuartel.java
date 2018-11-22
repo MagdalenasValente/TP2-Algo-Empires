@@ -7,7 +7,7 @@ import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Cuartel extends Edificio implements Construible{
+public class Cuartel extends Edificio implements EdificioConstruible {
 
     private StrategyConstruible strategy;
 

@@ -1,6 +1,6 @@
 package entidades.unidades;
 
-import entidades.edificios.Construible;
+import entidades.edificios.EdificioConstruible;
 import entidades.edificios.Cuartel;
 import entidades.edificios.Edificio;
 import entidades.edificios.Plaza;
@@ -56,7 +56,7 @@ public class Aldeano extends Unidad {
 		return edificio;
 	}
 
-	public void construir(Construible edificio){
+	public void construir(EdificioConstruible edificio){
 		if(edificio.construido()){
 			return;
 		}
