@@ -2,12 +2,9 @@ package entidadesTest.edificiosTest;
 
 import static org.junit.Assert.*;
 
-import entidades.edificios.Construible;
 import entidades.edificios.Edificio;
 import org.junit.Test;
 
-import entidades.unidades.Espadachin;
-import entidades.unidades.Arquero;
 import entidades.unidades.Unidad;
 import entidades.edificios.Cuartel;
 

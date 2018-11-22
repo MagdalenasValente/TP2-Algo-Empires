@@ -2,7 +2,7 @@ package entidades.edificios;
 import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
 
 
-public interface Construible {
+public interface EdificioConstruible {
 
     public void setStrategy(StrategyConstruible strategy);
     public boolean construido();
