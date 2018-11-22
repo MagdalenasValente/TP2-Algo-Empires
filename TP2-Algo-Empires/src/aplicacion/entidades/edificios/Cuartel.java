@@ -50,7 +50,6 @@ public class Cuartel extends Edificio implements Construible{
 
 
     public void actuar(){
-        this.strategy.actuar();
 
     }
 
