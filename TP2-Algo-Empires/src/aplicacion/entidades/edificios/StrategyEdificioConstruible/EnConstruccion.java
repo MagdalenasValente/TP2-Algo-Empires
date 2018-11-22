@@ -1,4 +1,4 @@
-package entidades.edificios.StrategyConstruible;
+package entidades.edificios.StrategyEdificioConstruible;
 
 import entidades.edificios.Construible;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
@@ -28,7 +28,5 @@ public class EnConstruccion implements StrategyConstruible {
     public Unidad crearUnidad(UnidadTipo tipo) {
         return null;
     }
-    public void actuar(){
 
-    }
 }

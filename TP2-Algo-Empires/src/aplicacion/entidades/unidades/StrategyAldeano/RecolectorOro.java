@@ -9,6 +9,7 @@ public class RecolectorOro implements StrategyAldeano {
         this.aldeano = aldeano;
     }
 
+
     public void juntarOro() {
         aldeano.sumarOro(20);
 

@@ -1,7 +1,9 @@
 package entidades.unidades;
 
+import entidades.edificios.Construible;
 import entidades.edificios.Cuartel;
 import entidades.edificios.Edificio;
+import entidades.edificios.Plaza;
 import entidades.unidades.StrategyAldeano.Constructor;
 import entidades.unidades.StrategyAldeano.RecolectorOro;
 import entidades.unidades.StrategyAldeano.Reparador;
@@ -12,11 +14,22 @@ public class Aldeano extends Unidad {
 	private int oro;
 	private StrategyAldeano strategy;
 
+
 	public Aldeano() {
 		super(50);
 		this.oro = 0;
 		this.strategy = new RecolectorOro(this);
 	}
+
+
+	/////// SETEAR STRATEGY
+	public void setStrategy(StrategyAldeano strategy){
+		this.strategy = strategy;
+	}
+
+	// FIN SETEAR STRATEGY
+
+	/////// REPARAR
 
 	public void reparar(Edificio edificio){
 		if(edificio.fullVida()){
@@ -25,19 +38,34 @@ public class Aldeano extends Unidad {
 		this.setStrategy(new Reparador(edificio, this));
 	}
 
-	public void setStrategy(StrategyAldeano strategy){
-		this.strategy = strategy;
-	}
+	// FIN REPARAR.
 
+	/////// CONSTRUCCION
 
 	public Cuartel construirCuartel(){
 		// Verificar q pueda construirlo en esa ubicacion
 		Cuartel edificio = new Cuartel();
-		this.setStrategy(new Constructor(edificio,this));
+		this.construir(edificio);
 		return edificio;
 	}
 
+	public Plaza construirPlaza(){
+		// Verificar q pueda construirlo en esa ubicacion
+		Plaza edificio = new Plaza();
+		this.construir(edificio);
+		return edificio;
+	}
 
+	public void construir(Construible edificio){
+		if(edificio.construido()){
+			return;
+		}
+		this.setStrategy(new Constructor(edificio,this));
+	}
+
+	// FIN CONSTRUCCION
+
+	/////// METODOS ORO
 	public int getOro(){
 		return this.oro;
 	}
@@ -46,6 +74,8 @@ public class Aldeano extends Unidad {
 		this.oro +=oro;
 	}
 
+	// FIN METODOS ORO.
+	//////// MODO ACTUAR / TURNO
 	public void actuar(){
 		strategy.actuar( );
 	}

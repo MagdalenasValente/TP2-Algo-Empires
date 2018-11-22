@@ -1,8 +1,7 @@
 package entidades.edificios;
 
-import entidades.edificios.StrategyConstruible.StrategyConstruible;
-import entidades.edificios.StrategyConstruible.EnConstruccion;
-import entidades.unidades.Aldeano;
+import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
+import entidades.edificios.StrategyEdificioConstruible.EnConstruccion;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
 
@@ -18,10 +17,13 @@ public class Cuartel extends Edificio implements Construible{
         this.strategy = new EnConstruccion(this);
     }
 
+    // SET STRATEGY
     public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
 
+    // FIN SET STRATEGY
 
-    @Override
+    // METODOS DE CONSTRUCCION
+
     public boolean construido() {
         return this.strategy.construido();
     }
@@ -29,7 +31,9 @@ public class Cuartel extends Edificio implements Construible{
     public void construirse(){
         this.strategy.construirse();
     }
+    // FIN METODOS DE CONSTRUCCION
 
+    // METODO CREAR UNIDAD
     public Unidad crearArquero() {
 
         return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
@@ -47,13 +51,11 @@ public class Cuartel extends Edificio implements Construible{
 
     }
 
+    // FIN METODO CREAR UNIDAD
 
     public void actuar(){
 
     }
 
-    public void serConstruido(Aldeano aldeano) {
-
-    }
 
 }

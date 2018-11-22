@@ -7,6 +7,7 @@ public class Constructor implements StrategyAldeano {
 
     Aldeano aldeano;
     Construible edificio;
+
     public Constructor (Construible edificio, Aldeano aldeano){
         this.edificio = edificio;
         this.aldeano = aldeano;

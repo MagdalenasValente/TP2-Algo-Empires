@@ -29,12 +29,6 @@ public class Castillo extends Edificio{
 
     }
 
-
-
-    public void serConstruido(Aldeano aldeano) {
-
-    }
-
     public void actuar(){
 
 
