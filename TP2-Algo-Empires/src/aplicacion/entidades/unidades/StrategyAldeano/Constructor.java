@@ -6,7 +6,7 @@ import entidades.unidades.Aldeano;
 public class Constructor implements StrategyAldeano {
 
     private Aldeano aldeano;
-    private Construible edificio;
+    private EdificioConstruible edificio;
 
     public Constructor (EdificioConstruible edificio, Aldeano aldeano){
         this.edificio = edificio;
