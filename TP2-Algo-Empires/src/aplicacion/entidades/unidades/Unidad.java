@@ -9,7 +9,7 @@ import mapa.Mapa;
 import java.awt.Point;
 
 public abstract class Unidad extends Entidad {
-    private Mapa mapa;
+    //private Mapa mapa;
     private Point coordenadas;
 
 	public Unidad(int vida, int danioAUnidades, int danioAEdificios) {
@@ -29,6 +29,14 @@ public abstract class Unidad extends Entidad {
         throw new NoPuedeRepararException();
     }
 
+    @Override
+    public void esAtacado(int ataque,int unused){
+	    boolean esta_muerto = this.vida.quitarVida(ataque);
+	    if(esta_muerto){
+            mapa.entidadHaMuerto(this);
+        }
+	    return;
+    }
 
     private boolean direccionUnitariaEsValida(Point direccion){
 	    return (-1 <= direccion.getX() && direccion.getX() <= 1 && -1 <= direccion.getY() && direccion.getY() <= 1);

@@ -43,4 +43,31 @@ public class vidaUnitTest {
         }
         assert(lanzoLaExcepcion);
     }
+
+    @Test
+    public void quitarVidaDaFalseSiNoLlegaACero(){
+        Vida vida = new Vida(100, 100);
+        assert (!vida.quitarVida(50));
+    }
+
+    @Test
+    public void quitarVidaDaTrueSiLlegaACeroOMenos(){
+        Vida vida = new Vida(100, 100);
+        assert (vida.quitarVida(100));
+        assert (vida.quitarVida(120));
+    }
+
+    @Test
+    public void quitarVidaEnCasoDeLlegarAMenosQueCeroDejaLaVidaEnCero(){
+        Vida vida = new Vida(100, 100);
+        vida.quitarVida(150);
+        assert (vida.verVida() == 0);
+    }
+
+    @Test
+    public void leQuito20DeVidaA100DebenQuedar80DeVida(){
+        Vida vida = new Vida(100, 100);
+        vida.quitarVida(20);
+        assert (vida.verVida() == 80);
+    }
 }

@@ -29,8 +29,8 @@ public class Aldeano extends Unidad {
 	public void construir(Edificio edificio){
 
 	}
-    public void actuar(){
-		this.oro += state.actuar( this);
+    public int actuar(){
+		return state.actuar( this);
 	}
 
 	public int getOro(){

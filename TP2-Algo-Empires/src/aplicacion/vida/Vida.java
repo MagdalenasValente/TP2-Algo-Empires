@@ -20,7 +20,7 @@ public class Vida {
     }
 
     public boolean regenerarVida(int puntosDeVida){
-        if (fullVida()){
+        if (fullVida() || puntosDeVida < 0){
             return false;
         }
         this.vidaActual = this.vidaActual+ puntosDeVida;
@@ -28,8 +28,13 @@ public class Vida {
         return true;
     }
 
-    public void quitarVida(int cantidad){
-        this.vidaActual = this.vidaActual - cantidad;
+    public boolean quitarVida(int puntosDeVida){
+        this.vidaActual = this.vidaActual - puntosDeVida;
+        if (this.vidaActual <= 0){
+            this.vidaActual = 0;
+            return true;
+        }
+        return false;
     }
 
     public void setVida(int vida){

@@ -2,6 +2,7 @@ package entidades;
 
 import entidades.edificios.Edificio;
 import entidades.unidades.Unidad;
+import habilidades.Habilidad;
 import mapa.Mapa;
 
 import vida.Vida;

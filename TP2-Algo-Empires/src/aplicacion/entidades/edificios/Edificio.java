@@ -36,6 +36,7 @@ public abstract class Edificio extends Entidad {
         }
     }
 	public void setVida(int vida){
+    	/*debe ser borrado*/
 	    super.setVida(vida);
     }
 
