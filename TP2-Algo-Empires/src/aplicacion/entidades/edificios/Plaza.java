@@ -2,37 +2,42 @@ package entidades.edificios;
 
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
+import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
+import entidades.edificios.StrategyEdificioConstruible.EnConstruccion;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.StateAldeano.RecolectorOro;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Plaza extends Edificio {
-    private int vidaMaxima;
+public class Plaza extends Edificio implements Construible {
 
-    public int reparacion = 15;
+    private StrategyConstruible strategy;
+
     public Plaza() {
         super(450, new Point(2,2), 15, 0, 0);
-        this.vidaMaxima = 450;
+        strategy = new EnConstruccion(this);
     }
+
+    public void construirse(){}
 
     public Unidad crearAldeano() {
 
-        Unidad aldeano=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ALDEANO);
+        return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ALDEANO);
 
-        return aldeano;
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
 
-
-
-    @Override
-    public void serConstruido(Aldeano aldeano) {
-
+    public boolean construido() {
+        return this.strategy.construido();
     }
+
+    public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
+
+
+
 
     public int actuar(){
         return 0;

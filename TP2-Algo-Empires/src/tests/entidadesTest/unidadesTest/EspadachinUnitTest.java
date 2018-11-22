@@ -18,18 +18,18 @@ public class EspadachinUnitTest {
 		assertEquals(espadachin.vida(), 100);
 	}
 
-	@Test
-	public void ArqueroRepararCastilloLevantaNoPuedeRepararException(){
-		boolean lanzoLaExcepcion = false;
-		Unidad espadachin = new Espadachin();
-		Edificio castillo = new Castillo();
-		try {
-			espadachin.reparar(castillo);
-		} catch (NoPuedeRepararException e) {
-			lanzoLaExcepcion = true;
-		}
-		assert(lanzoLaExcepcion);
-	}
+	//@Test
+	//public void ArqueroRepararCastilloLevantaNoPuedeRepararException(){
+	//	boolean lanzoLaExcepcion = false;
+	//	Unidad espadachin = new Espadachin();
+	//	Edificio castillo = new Castillo();
+	//	try {
+	//		espadachin.reparar(castillo);
+	//	} catch (NoPuedeRepararException e) {
+	//		lanzoLaExcepcion = true;
+	//	}
+	//	assert(lanzoLaExcepcion);
+	//}
 
 	@Test
 	public void EspadachinAtacarCastilloCon1000DeVidaLeCausa15DeDanio(){

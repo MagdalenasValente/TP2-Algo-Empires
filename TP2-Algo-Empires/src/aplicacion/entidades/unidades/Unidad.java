@@ -25,11 +25,6 @@ public abstract class Unidad extends Entidad {
 
 	}
 
-    public void reparar(Edificio edificio) {
-        throw new NoPuedeRepararException();
-    }
-
-
     private boolean direccionUnitariaEsValida(Point direccion){
 	    return (-1 <= direccion.getX() && direccion.getX() <= 1 && -1 <= direccion.getY() && direccion.getY() <= 1);
     }

@@ -19,17 +19,8 @@ public abstract class Edificio extends Entidad {
 		this.reparacion = reparacion;
 	}
 
-    public void serReparado(Aldeano aldeano){
-        if(this.fullVida()){
-            return; // exception aca!!.
-        }
-        aldeano.setState(new Reparador(this));
 
-    }
-
-	public abstract void serConstruido(Aldeano aldeano);
-
-    public void repararse(Aldeano aldeano){
+    public void repararse(){
         this.repararVida(reparacion);
         if(this.fullVida()) {
             aldeano.setState(new RecolectorOro());

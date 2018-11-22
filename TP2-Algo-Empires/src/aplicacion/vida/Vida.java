@@ -37,6 +37,15 @@ public class Vida {
         return false;
     }
 
+    public boolean vidaConstruccion(int puntosDeVida){
+        if (fullVida()){
+            return false;
+        }
+        this.vidaActual = this.vidaActual+ puntosDeVida;
+        if(this.vidaActual > this.vidaMaxima){ this.vidaActual = vidaMaxima;}
+        return true;
+    }
+
     public void setVida(int vida){
         this.vidaActual=vida;
     }
