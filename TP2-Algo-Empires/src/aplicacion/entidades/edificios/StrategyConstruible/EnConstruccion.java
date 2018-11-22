@@ -1,4 +1,4 @@
-package entidades.StrategyConstruible;
+package entidades.edificios.StrategyConstruible;
 
 import entidades.edificios.Construible;
 import entidades.unidades.FactoryUnidades.UnidadTipo;

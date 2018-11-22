@@ -1,7 +1,7 @@
 package entidades.edificios;
 
-import entidades.StrategyConstruible.StrategyConstruible;
-import entidades.StrategyConstruible.EnConstruccion;
+import entidades.edificios.StrategyConstruible.StrategyConstruible;
+import entidades.edificios.StrategyConstruible.EnConstruccion;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 import entidades.unidades.Unidad;
 

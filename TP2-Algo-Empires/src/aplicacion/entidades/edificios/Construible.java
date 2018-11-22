@@ -1,5 +1,5 @@
 package entidades.edificios;
-import entidades.StrategyConstruible.StrategyConstruible;
+import entidades.edificios.StrategyConstruible.StrategyConstruible;
 
 
 public interface Construible {
