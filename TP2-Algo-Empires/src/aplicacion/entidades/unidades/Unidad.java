@@ -9,7 +9,6 @@ import mapa.Mapa;
 import java.awt.Point;
 
 public abstract class Unidad extends Entidad {
-    //private Mapa mapa;
     private Point coordenadas;
 
 	public Unidad(int vida, int danioAUnidades, int danioAEdificios) {
