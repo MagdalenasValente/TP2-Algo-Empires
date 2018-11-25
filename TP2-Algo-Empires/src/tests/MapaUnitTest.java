@@ -309,7 +309,7 @@ public class MapaUnitTest {
         mapa.colocar(obejetivo, espadachin);
         Entidad entidadEnUbicacion1 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
         assert (espadachin == entidadEnUbicacion1);
-        espadachin.esAtacado(10000,0);
+        espadachin.quitarVida(10000);
         Entidad entidadEnUbicacion2 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
         assert (null == entidadEnUbicacion2);
     }
@@ -323,7 +323,7 @@ public class MapaUnitTest {
         mapa.colocar(obejetivo, cuartel);
         Entidad entidadEnUbicacion1 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
         assert (cuartel == entidadEnUbicacion1);
-        cuartel.esAtacado(0,10000);
+        cuartel.quitarVida(10000);
         Entidad entidadEnUbicacion2 = mapa.entidadQueOcupaLaPoscicion(obejetivo);
         assert (null == entidadEnUbicacion2);
     }
