@@ -1,4 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="nicopaez.tutoriales.oo.notas" basedir="." default="test">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="nicopaez.tutoriales.oo.notas" basedir="." default="tests">
 	<property name="build" location="build" />
 	<property name="libs" location="libs" />
 	<property name="classes.dir" location="build" />
@@ -59,13 +59,13 @@
 	</target>
 
 	<target name="compilar.tests" depends="instrumentar.aplicacion">
-		<javac srcdir="test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+		<javac srcdir="tests" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
 			<classpath refid="classpath" />
 		</javac>
 	</target>
 
     <target name="compilar.tests.sin.instrumentar" depends="compilar.aplicacion">
-        <javac srcdir="src/test" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+        <javac srcdir="src/tests" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
             <classpath refid="classpath" />
         </javac>
     </target>
@@ -133,7 +133,7 @@
 		</cobertura-report>
 	</target>
 
-    <target name="test" depends="compilar.tests.sin.instrumentar">
+    <target name="tests" depends="compilar.tests.sin.instrumentar">
         <junit fork="no" failureProperty="test.failure" showoutput="true">
             <classpath location="${build}" />
             <classpath refid="classpath" />
@@ -146,7 +146,7 @@
     </target>
 
 
-    <target name="compilar.paquete" depends="test">
+    <target name="compilar.paquete" depends="tests">
 		<javac srcdir="src" destdir="${build}/classes" debug="no">
 		</javac>
 	</target>
