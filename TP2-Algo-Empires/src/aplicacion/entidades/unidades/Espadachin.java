@@ -3,15 +3,15 @@ package entidades.unidades;
 import entidades.unidades.Unidad;
 
 public class Espadachin extends Unidad {
-	private int vidaMaxima;
 
 	public Espadachin() {
-		super(100);
-		/*this.vidaMaxima = 100;*/
+		super(100, 25, 15, "Espadachin");
 	}
 
 
-	public int actuar(){
-		return 0;
+
+
+	public void actuar(){
+
 	}
 }

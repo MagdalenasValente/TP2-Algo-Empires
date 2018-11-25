@@ -4,16 +4,16 @@ import entidades.edificios.Edificio;
 import excepciones.NoPuedeRepararException;
 
 public class ArmaDeAsedio extends Unidad {
-	private int vidaMaxima;
-
 
 	public ArmaDeAsedio() {
-		super(150);
-		this.vidaMaxima = 1000;
+		super(150, 0, 75, "Arma de asedio");
 	}
 
 
-	public int actuar(){
-		return 0;
+
+
+	public void actuar(){
+
+
 	}
 }

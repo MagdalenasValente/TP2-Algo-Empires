@@ -2,49 +2,63 @@ package entidades.edificios;
 
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
+import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
+import entidades.edificios.StrategyEdificioConstruible.EnConstruccion;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
+import entidades.unidades.StrategyAldeano.RecolectorOro;
 import entidades.unidades.Unidad;
 
 import java.awt.Point;
 
-public class Cuartel extends Edificio {
-    private int vidaMaxima;
+public class Cuartel extends Edificio implements EdificioConstruible {
 
+    private StrategyConstruible strategy;
 
 
     public Cuartel() {
-        super(250, new Point(2,2),50);
-        this.vidaMaxima = 250;
+        super(250, new Point(2,2),15, 0, 0, "Cuartel");
+        this.strategy = new EnConstruccion(this);
     }
 
+    // SET STRATEGY
+    public void setStrategy(StrategyConstruible strategy) { this.strategy = strategy;    }
 
+    // FIN SET STRATEGY
+
+    // METODOS DE CONSTRUCCION
+
+    public boolean construido() {
+        return this.strategy.construido();
+    }
+
+    public void construirse(){
+        this.strategy.construirse();
+    }
+    // FIN METODOS DE CONSTRUCCION
+
+    // METODO CREAR UNIDAD
     public Unidad crearArquero() {
 
-        Unidad arquero=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
-
-        return arquero;
+        return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARQUERO);
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
     public Unidad crearEspadachin() {
 
-        Unidad espadachin=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
+        return this.strategy.crearUnidad(UnidadTipo.UNIDAD_TIPO_ESPADACHIN);
 
-        return espadachin;
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
 
+    // FIN METODO CREAR UNIDAD
 
-    public int actuar(){
-        return 0;
 
-    }
-
-    public void serConstruido(Aldeano aldeano) {
+    public void actuar(){
 
     }
+
 
 }

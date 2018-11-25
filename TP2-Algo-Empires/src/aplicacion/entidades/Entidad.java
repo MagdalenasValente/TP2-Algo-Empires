@@ -1,5 +1,7 @@
 package entidades;
 
+import entidades.edificios.Edificio;
+import entidades.unidades.Unidad;
 import habilidades.Habilidad;
 import mapa.Mapa;
 
@@ -9,20 +11,25 @@ import java.awt.Point;
 
 public abstract class Entidad{
 
-    protected Vida vida;
+    private Vida vida;
 	private Point tamanio;
 	private Point posicion;
-    protected Mapa mapa;
-    //protected Habilidad[] habilidades;
+    private Mapa mapa;
+    private int danioAUnidades;
+    private int danioAEdificios;
+    private String nombre;//talvez borrar en refactor
 
     public Mapa getMapa(){
         return this.mapa;
     }
 
 
-	public Entidad(int vida, Point tamanio) {
+	public Entidad(int vida, Point tamanio, int danioAUnidades, int danioAEdificios, String nombre) {
 		this.vida = new Vida(vida);
 		this.tamanio = tamanio;
+		this.danioAUnidades = danioAUnidades;
+		this.danioAEdificios = danioAEdificios;
+		this.nombre = nombre;
 	}
 	public int vida() {
     	return this.vida.verVida();
@@ -41,9 +48,6 @@ public abstract class Entidad{
     	this.vida.regenerarVida(valor);
 	}
 
-	/*public abstract void esAtacado(int[] ataque);*/
-	public abstract void esAtacado(int unidad, int edificio);
-
 	public void setPosicion(Point posicion){
 	    this.posicion = posicion;
     }
@@ -56,5 +60,23 @@ public abstract class Entidad{
 	    this.mapa = mapa;
     }
 
-    public abstract int actuar();
+    public abstract void actuar();
+
+    public void quitarVida(int cantidad){
+    	if (this.vida.quitarVida(cantidad)){
+			mapa.entidadHaMuerto(this);
+		}
+	}
+
+	public void atacar(Edificio edificio){
+    	edificio.quitarVida(danioAEdificios);
+	}
+
+	public void atacar(Unidad unidad){
+		unidad.quitarVida(danioAUnidades);
+	}
+
+	public String getNombre(){
+    	return nombre;
+	}
 }

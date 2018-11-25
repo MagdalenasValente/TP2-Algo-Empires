@@ -5,60 +5,34 @@ import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.InvalidUnidadTipoException;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.InvalidUnidadTipoException;
-import entidades.unidades.StateAldeano.RecolectorOro;
-import entidades.unidades.StateAldeano.Reparador;
+import entidades.unidades.StrategyAldeano.RecolectorOro;
+import entidades.unidades.StrategyAldeano.Reparador;
 import entidades.unidades.Unidad;
 import java.awt.Point;
 
-public abstract class Edificio extends Entidad {
+public abstract class Edificio extends Entidad implements EdificioReparable{
 
     private int reparacion;
 
-	public Edificio(int vida, Point tamanio, int reparacion) {
-		super(vida, tamanio);
+	public Edificio(int vida, Point tamanio, int reparacion, int danioAUnidades, int danioAEdificios, String nombre) {
+		super(vida, tamanio, danioAUnidades, danioAEdificios, nombre);
 		this.reparacion = reparacion;
 	}
 
-    public void serReparado(Aldeano aldeano){
-        if(this.fullVida()){
-            return; // exception aca!!.
-        }
-        aldeano.setState(new Reparador(this));
 
+	public boolean reparado(){
+	    return this.fullVida();
     }
-
-	public abstract void serConstruido(Aldeano aldeano);
-
-    public void repararse(Aldeano aldeano){
-        this.repararVida(reparacion);
-        if(this.fullVida()) {
-            aldeano.setState(new RecolectorOro());
-        }
+    public void repararse(){
+        this.repararVida(this.reparacion);
     }
 	public void setVida(int vida){
     	/*debe ser borrado*/
 	    super.setVida(vida);
     }
 
-
-	public void esAtacado(int unused, int ataque){
-		if(vida.quitarVida(ataque)){
-			mapa.entidadHaMuerto(this);
-		};
-	}
-
-
-	public Unidad crearAldeano(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearAsedio(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearArquero(){
-		throw new InvalidUnidadTipoException();
-	}
-	public Unidad crearEspadachin(){
-		throw new InvalidUnidadTipoException();
-	}
+    public void quitarVida(int cantidad){
+        super.quitarVida(cantidad);
+    }
 
 }

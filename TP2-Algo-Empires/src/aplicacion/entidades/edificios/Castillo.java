@@ -2,6 +2,7 @@ package entidades.edificios;
 
 
 import entidades.unidades.Aldeano;
+import entidades.unidades.ArmaDeAsedio;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.unidades.FactoryUnidades.UnidadTipo;
 
@@ -13,28 +14,26 @@ public class Castillo extends Edificio{
 
     // se puede abstraer en un factory, o al instanciar la clase.
     public Castillo() {
-    	super(1000, new Point(4,4), 15);
+    	super(1000, new Point(4,4), 15, 20, 20, "Castillo");
 
     }
 
 
     public Unidad crearAsedio() {
 
-        Unidad asedio=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);
+        //Unidad asedio=  UnidadFactory.crearUnidad(UnidadTipo.UNIDAD_TIPO_ARMA_DE_ASEDIO);
 
-        return asedio;
+        return (new ArmaDeAsedio());
 
         /*aca estaria el posicionamiento en el terreno de la unidad*/
 
     }
 
 
-    public void serConstruido(Aldeano aldeano) {
 
-    }
 
-    public int actuar(){
-        return 0;
+
+    public void actuar(){
 
     }
 
