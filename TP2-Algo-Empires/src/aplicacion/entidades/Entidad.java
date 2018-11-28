@@ -58,7 +58,7 @@ public abstract class Entidad{
 	    this.mapa = mapa;
     }
 
-    public abstract int actuar();
+    public abstract void actuar();
 
     public void quitarVida(int cantidad){
     	this.vida.quitarVida(cantidad);
