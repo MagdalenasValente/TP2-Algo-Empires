@@ -1,4 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="nicopaez.tutoriales.oo.notas" basedir="." default="tests">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="AlgoEmpiresBuild" basedir="." default="test">
 	<property name="build" location="build" />
 	<property name="libs" location="libs" />
 	<property name="classes.dir" location="build" />
@@ -28,7 +28,7 @@
 		</fileset>
 		<pathelement location="${build}" />
 		<pathelement location="${instrumented.dir}" />
-		<pathelement location="${build}/tests" />
+		<pathelement location="${build}/test" />
 	</path>
 
 	<path id="cobertura.classpath">
@@ -48,7 +48,7 @@
 		<delete dir="${build}" />
 		<mkdir dir="${build}" />
 		<mkdir dir="${build}/classes" />
-		<mkdir dir="${build}/tests" />
+		<mkdir dir="${build}/test" />
         <mkdir dir="${reports.dir}" />
 	</target>
 
@@ -58,14 +58,14 @@
 		</javac>
 	</target>
 
-	<target name="compilar.tests" depends="instrumentar.aplicacion">
-		<javac srcdir="tests" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+	<target name="compilar.test" depends="instrumentar.aplicacion">
+		<javac srcdir="test" destdir="${build}/test" includeantruntime="false" debug="yes" target="1.8">
 			<classpath refid="classpath" />
 		</javac>
 	</target>
 
-    <target name="compilar.tests.sin.instrumentar" depends="compilar.aplicacion">
-        <javac srcdir="src/tests" destdir="${build}/tests" includeantruntime="false" debug="yes" target="1.8">
+    <target name="compilar.test.sin.instrumentar" depends="compilar.aplicacion">
+        <javac srcdir="src/test" destdir="${build}/test" includeantruntime="false" debug="yes" target="1.8">
             <classpath refid="classpath" />
         </javac>
     </target>
@@ -84,7 +84,7 @@
 	</target>
 
 
-    <target name="ejecutar.tests" depends="compilar.tests">
+    <target name="ejecutar.test" depends="compilar.test">
         <junit fork="yes" failureProperty="test.failure" forkmode="once" showoutput="true">
             <sysproperty key="net.sourceforge.cobertura.datafile" file="${build}/cobertura.ser" />
             <classpath location="${instrumented.dir}" />
@@ -94,8 +94,8 @@
             <formatter type="xml" />
             <test name="${testcase}" todir="${reports.xml.dir}" if="testcase" />
             <batchtest todir="${reports.xml.dir}" unless="testcase">
-                <fileset dir="${build}/tests" includes="**/*Test.class" />
-                <fileset dir="${build}/tests" includes="**/Prueba*.class" />
+                <fileset dir="${build}/test" includes="**/*Test.class" />
+                <fileset dir="${build}/test" includes="**/Prueba*.class" />
             </batchtest>
         </junit>
         <fail message="Pruebas fallidas" if="test.failure" />
@@ -117,7 +117,7 @@
 		<cobertura-check branchrate="34" totallinerate="100" />
 	</target>
 
-	<target name="coverage-report" depends="ejecutar.tests">
+	<target name="coverage-report" depends="ejecutar.test">
 		<cobertura-report srcdir="${src.dir}" destdir="${coverage.xml.dir}" format="xml" datafile="${build}/cobertura.ser" />
 	</target>
 
@@ -133,12 +133,12 @@
 		</cobertura-report>
 	</target>
 
-    <target name="tests" depends="compilar.tests.sin.instrumentar">
+    <target name="test" depends="compilar.test.sin.instrumentar">
         <junit fork="no" failureProperty="test.failure" showoutput="true">
             <classpath location="${build}" />
             <classpath refid="classpath" />
             <batchtest todir="${reports.xml.dir}" unless="testcase">
-                <fileset dir="${build}/tests" includes="**/*Test.class" />
+                <fileset dir="${build}/test" includes="**/*Test.class" />
                 <formatter type="plain" usefile="false"/>
             </batchtest>
         </junit>
@@ -146,7 +146,7 @@
     </target>
 
 
-    <target name="compilar.paquete" depends="tests">
+    <target name="compilar.paquete" depends="test">
 		<javac srcdir="src" destdir="${build}/classes" debug="no">
 		</javac>
 	</target>
