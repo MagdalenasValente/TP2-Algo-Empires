@@ -10,7 +10,7 @@ import entidades.unidades.StrategyAldeano.Reparador;
 import entidades.unidades.Unidad;
 import java.awt.Point;
 
-public abstract class Edificio extends Entidad {
+public abstract class Edificio extends Entidad implements EdificioReparable{
 
     private int reparacion;
 
@@ -20,6 +20,9 @@ public abstract class Edificio extends Entidad {
 	}
 
 
+	public boolean reparado(){
+	    return this.fullVida();
+    }
     public void repararse(){
         this.repararVida(this.reparacion);
     }

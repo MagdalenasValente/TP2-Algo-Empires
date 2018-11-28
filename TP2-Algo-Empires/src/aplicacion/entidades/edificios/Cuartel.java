@@ -55,8 +55,8 @@ public class Cuartel extends Edificio implements EdificioConstruible {
 
     // FIN METODO CREAR UNIDAD
 
-    public int actuar(){
-        return 0;
+
+    public void actuar(){
 
     }
 
