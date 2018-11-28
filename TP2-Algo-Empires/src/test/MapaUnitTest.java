@@ -42,9 +42,9 @@ public class MapaUnitTest {
 		Mapa mapa = new Mapa(40, 40);
 		Entidad castillo = new Castillo();
 		Point coordenadas = new Point(2, 2);
-		//mapa.colocar(coordenadas, castillo);
+		mapa.colocar(coordenadas, castillo);
 		Point posicionFueraDelCastillo = new Point(6,6);
-		assert(true);//!mapa.estaOcupado(posicionFueraDelCastillo));
+		assert(!mapa.estaOcupado(posicionFueraDelCastillo));
 	}
 
 	@Test
