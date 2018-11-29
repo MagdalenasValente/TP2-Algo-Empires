@@ -2,4 +2,4 @@ language: java
 jdk:
   - oraclejdk8
 
-install: ant TP2-Algo-Empires/build
+install: ant
