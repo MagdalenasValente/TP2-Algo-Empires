@@ -14,11 +14,6 @@ import org.junit.Test;
 
 public class ArqueroUnitTest {
 
-	@Test
-	public void arqueroNuevoTiene75DeVida() {
-		Entidad arquero = new Arquero();
-		assertEquals(arquero.vida(), 75);
-	}
 /*
 	@Test
 	public void ArqueroRepararCastilloLevantaNoPuedeRepararException(){

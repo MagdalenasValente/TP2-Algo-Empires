@@ -13,11 +13,6 @@ import static org.junit.Assert.*;
 
 public class AldeanoUnitTest {
 
-	@Test
-	public void aldeanoNuevoTiene50DeVida() {
-		Entidad aldeano = new Aldeano();
-		assertEquals(aldeano.vida(), 50);
-	}
 
 //	@Test
 //    public void aldeanoRepararCastilloConTodaLaVidaLoDejaEn1000DeVida(){
