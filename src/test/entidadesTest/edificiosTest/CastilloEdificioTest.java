@@ -10,11 +10,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class CastilloEdificioTest {
-    @Test
-    public void castilloNuevoTiene1000DeVida(){
-        Edificio castillo = new Castillo();
-        assertEquals(castillo.vida(), 1000);
-    }
 
     @Test
     public void castilloCreaUnidadArmaDeAsedio(){

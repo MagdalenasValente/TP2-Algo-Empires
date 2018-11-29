@@ -10,11 +10,7 @@ import entidades.unidades.Unidad;
 import entidades.edificios.Plaza;
 
 public class PlazaEdificioTest {
-    @Test
-    public void plazaNuevaTiene450DeVida(){
-        Edificio plaza = new Plaza();
-        assertEquals(plaza.vida(), 450);
-    }
+
 
     @Test
     public void plazaCreaUnidadAldeano(){

@@ -10,11 +10,6 @@ import entidades.edificios.Cuartel;
 
 public class CuartelEdificioTest {
 
-    @Test
-    public void cuartelNuevoTiene250DeVida(){
-        Edificio cuartel = new Cuartel();
-        assertEquals(cuartel.vida(), 250);
-    }
 
 
 //
