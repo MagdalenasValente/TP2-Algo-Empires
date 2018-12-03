@@ -7,7 +7,7 @@ import entidades.edificios.Castillo;
 public class Arquero extends Unidad {
 
 	public Arquero() {
-		super(75, 15, 10);
+		super(75, 15, 10, "Arquero", 3);
 	}
 
 

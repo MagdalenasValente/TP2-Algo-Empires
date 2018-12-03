@@ -14,8 +14,8 @@ public abstract class Edificio extends Entidad implements EdificioReparable{
 
     private int reparacion;
 
-	public Edificio(int vida, Point tamanio, int reparacion, int danioAUnidades, int danioAEdificios) {
-		super(vida, tamanio, danioAUnidades, danioAEdificios);
+	public Edificio(int vida, Point tamanio, int reparacion, int danioAUnidades, int danioAEdificios, String nombre, int rango) {
+		super(vida, tamanio, danioAUnidades, danioAEdificios, nombre, rango);
 		this.reparacion = reparacion;
 	}
 

@@ -11,8 +11,8 @@ import java.awt.Point;
 public abstract class Unidad extends Entidad {
     private Point coordenadas;
 
-	public Unidad(int vida, int danioAUnidades, int danioAEdificios) {
-		super(vida, new Point(1,1	), danioAUnidades, danioAEdificios);
+	public Unidad(int vida, int danioAUnidades, int danioAEdificios, String nombre, int rango) {
+		super(vida, new Point(1,1	), danioAUnidades, danioAEdificios, nombre, rango);
 	}
 
 	public void desplazarse(Point direccion) {

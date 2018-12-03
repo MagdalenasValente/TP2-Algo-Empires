@@ -2,8 +2,8 @@ package mapa;
 
 import entidades.Entidad;
 import entidades.unidades.Unidad;
-import excepciones.*;
-
+import excepciones.EspacioOcupadoException;
+import excepciones.UbicacionDeAtaqueVaciaException;
 
 import java.awt.Point;
 import java.util.*;
@@ -44,7 +44,7 @@ public class Mapa {
 		return true;
 	}
 
-	private boolean rellenarLugarDelMapa(Point ubicacion, Point tamanio, Entidad ocuparLugar){
+	private boolean rrellenarLugarDelMapa(Point ubicacion, Point tamanio, Entidad ocuparLugar){
 		int coordenadaEnX = (int)ubicacion.getX();
 		int coordenadaEnY = (int)ubicacion.getY();
 		int tamanioEnX = (int)tamanio.getX();
@@ -68,9 +68,9 @@ public class Mapa {
 			throw new EspacioOcupadoException();
 		}
 		if(!this.verificarCoordenadas(coordenadas, tamanioDeLaEntidad)) {
-			throw new EspacioInvalidoException();
+			return;/*crear error*/
 		}
-		rellenarLugarDelMapa(coordenadas,tamanioDeLaEntidad,entidad);
+		rrellenarLugarDelMapa(coordenadas,tamanioDeLaEntidad,entidad);
 		/*
 		int coordenadaEnX = (int)coordenadas.getX();
 		int coordenadaEnY = (int)coordenadas.getY();
@@ -129,7 +129,7 @@ public class Mapa {
 		Point ubicacion = entidad.verPosicion();
 		Point tamanioDeLaEntidad = entidad.verTamanio();
 
-		rellenarLugarDelMapa(ubicacion,tamanioDeLaEntidad,null);
+		rrellenarLugarDelMapa(ubicacion,tamanioDeLaEntidad,null);
 		/*int coordenadaEnX = (int)ubicacion.getX();
 		int coordenadaEnY = (int)ubicacion.getY();
 		for(int i = 0; i<(int)tamanioDeLaEntidad.getX(); i++) {

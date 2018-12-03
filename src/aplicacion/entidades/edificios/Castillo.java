@@ -14,7 +14,7 @@ public class Castillo extends Edificio{
 
     // se puede abstraer en un factory, o al instanciar la clase.
     public Castillo() {
-    	super(1000, new Point(4,4), 15, 20, 20);
+    	super(1000, new Point(4,4), 15, 20, 20, "Castillo",3);
 
     }
 

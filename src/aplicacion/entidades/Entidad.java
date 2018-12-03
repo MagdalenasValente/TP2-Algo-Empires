@@ -15,19 +15,23 @@ public abstract class Entidad{
 	private Point tamanio;
 	private Point posicion;
     private Mapa mapa;
-    private int danioAUnidades;
-    private int danioAEdificios;
+	private int danioAUnidades;
+	private int danioAEdificios;
+	private int rango;
+    private String nombre;//talvez borrar en refactor
 
     public Mapa getMapa(){
         return this.mapa;
     }
 
 
-	public Entidad(int vida, Point tamanio, int danioAUnidades, int danioAEdificios) {
+	public Entidad(int vida, Point tamanio, int danioAUnidades, int danioAEdificios, String nombre, int rango) {
 		this.vida = new Vida(vida);
 		this.tamanio = tamanio;
 		this.danioAUnidades = danioAUnidades;
 		this.danioAEdificios = danioAEdificios;
+		this.rango = rango;
+		this.nombre = nombre;
 	}
 	public int vida() {
     	return this.vida.verVida();
@@ -61,7 +65,9 @@ public abstract class Entidad{
     public abstract void actuar();
 
     public void quitarVida(int cantidad){
-    	this.vida.quitarVida(cantidad);
+    	if (this.vida.quitarVida(cantidad)){
+			mapa.entidadHaMuerto(this);
+		}
 	}
 
 	public void atacar(Edificio edificio){
@@ -70,5 +76,21 @@ public abstract class Entidad{
 
 	public void atacar(Unidad unidad){
 		unidad.quitarVida(danioAUnidades);
+	}
+
+	public String getNombre(){
+    	return nombre;
+	}
+
+	public int getDanioAEdificios() {
+		return danioAEdificios;
+	}
+
+	public int getDanioAUnidades() {
+		return danioAUnidades;
+	}
+
+	public int getRango() {
+		return rango;
 	}
 }

@@ -6,7 +6,7 @@ import excepciones.NoPuedeRepararException;
 public class ArmaDeAsedio extends Unidad {
 
 	public ArmaDeAsedio() {
-		super(150, 0, 75);
+		super(150, 0, 75, "Arma de asedio",5);
 	}
 
 
