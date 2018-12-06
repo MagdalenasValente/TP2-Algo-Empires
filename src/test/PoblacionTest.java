@@ -1,4 +1,4 @@
-import juego.Poblacion;
+/*import juego.Poblacion;
 import org.junit.Test;
 
 public class PoblacionTest {
@@ -30,4 +30,4 @@ public class PoblacionTest {
         assert(!poblacion.decrementarPoblacion());
         assert(poblacion.verPoblacionActual() == 0);
     }
-}
+}*/
