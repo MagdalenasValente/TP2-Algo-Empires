@@ -38,12 +38,12 @@ public class IniciarJuego {
         mapa.colocar(castilloJugadorDos,new Castillo());
         mapa.colocar(plazaJugadorUno,new Plaza());
         mapa.colocar(plazaJugadorDos,new Plaza());
-        /*for (int i = 0; i < 3; i++){
-            Point aldeanosJugadorUno = new Point(unbicacionDelCastilloAncho + (i*2),unbicacionDelCastilloLargo - 2);
-            Point aldeanosJugadorDos = new Point((unbicacionDelCastilloAncho * 3)- (i*2),(unbicacionDelCastilloAncho * 3) + 2);
+        for (int i = 0; i < 3; i++){
+            Point aldeanosJugadorUno = new Point(unbicacionDelCastilloAncho + (i*2),unbicacionDelCastilloLargo - 5);
+            Point aldeanosJugadorDos = new Point((unbicacionDelCastilloAncho * 3)- (i*2),(unbicacionDelCastilloAncho * 3) + 5);
             mapa.colocar(aldeanosJugadorUno,new Aldeano());
             mapa.colocar(aldeanosJugadorDos,new Aldeano());
-        }*/
+        }
     }
 
     private void seleccionarOrdenDeJugador(){

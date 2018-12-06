@@ -20,8 +20,8 @@ public class JuegoInicio extends Application {
 
         stage.setFullScreen(false);
         stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-        stage.setMinWidth(800);
-        stage.setMinHeight(600);
+        stage.setMinWidth(1200);
+        stage.setMinHeight(910);
         primaryStage.setTitle("TP2 Algo Empires Grupo D1");
 
 

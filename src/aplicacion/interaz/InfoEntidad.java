@@ -153,7 +153,7 @@ public class InfoEntidad {
         montar.deshabilitarBoton();
         Boton construir = new BotonParaOrdenesAEntidades("CON",Color.GREEN,Color.LIGHTGREEN);
         construir.deshabilitarBoton();
-
+/*se debe rehacer de alguna forma sin getclass
         if (entidad != null) {
             ataque.habilitarBoton();
             construir.habilitarBoton();
@@ -162,7 +162,7 @@ public class InfoEntidad {
                 movimiento.habilitarBoton();
             }
         }
-
+*/
         //agrego las cosas a la caja horizontal
         infoDeEntidad.getChildren().addAll(icono,infoGeneral,infoAtaque,ataque,movimiento,montar,construir);
         return infoDeEntidad;

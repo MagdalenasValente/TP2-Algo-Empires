@@ -146,6 +146,7 @@ public class MenuPrincipal extends StackPane {
         }
         String nombreJugadorUno = pedirNombre.jugadorUno;
         String nombreJugadorDos = pedirNombre.jugadorDos;
+        //hay un bug no toma los nombres
         IniciarJuego juego = new IniciarJuego(ConstantesPantalla.tamanioMapaPequenio,ConstantesPantalla.tamanioMapaPequenio,nombreJugadorUno,nombreJugadorDos);
         Partida partida = new Partida(stage,juego);
         tableroDeJuego = partida.crearPartida();

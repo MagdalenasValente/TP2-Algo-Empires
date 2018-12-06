@@ -9,6 +9,7 @@ import interaz.botones.Boton;
 import interaz.botones.BotonParaMenu;
 import interaz.botones.BotonParaToolBar;
 import javafx.application.Application;
+import javafx.embed.swing.SwingNode;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ToolBar;
@@ -39,39 +40,33 @@ public class Partida {
     public Boton anterior;
     public Boton fin;
     private IniciarJuego juego;
+    private SwingNode mapa;
+    private InfoEntidad informante;
+    private BorderPane partida;
 
     public Partida(Stage stage, IniciarJuego juego)/* throws Exception*/ {
         this.stage = stage;
         this.juego = juego;
-/*
-        this.crearBarraDeOpciones();
-        Text centerText = new Text("Center");
-        Text topText = new Text("Aca Estaria El menu");
-        Text rightText = new Text("Right");
-        Text leftText = new Text("Left");
-
-        //test debe ser borrado
-        Entidad espachin = new Espadachin();
-
-        //Caja Inferior con informacion de la entidad
-        InfoEntidad generadorDeInfo = new InfoEntidad();
-        HBox cajaInferior = generadorDeInfo.generarInfo(espachin);
-
-        javafx.scene.layout.BorderPane root = new javafx.scene.layout.BorderPane(centerText, toolBar, rightText, cajaInferior, leftText);
-        root.setPrefSize(800, 600);//resolucion
-
-        Scene scene = new Scene(root);*/
     }
 
     public BorderPane crearPartida(){
         this.crearBarraDeOpciones();
+        this.crearMapa();
+        /*
         InfoEntidad infoEntidad = new InfoEntidad();
 
         //Espadachin espadachin = new Espadachin();//debug
         HBox cajaInferior = infoEntidad.generarInfo(null);
-
-        javafx.scene.layout.BorderPane root = new javafx.scene.layout.BorderPane(null/*mapa*/, toolBar, null, cajaInferior, null);
+        */
+        this.crearInfo();
+        javafx.scene.layout.BorderPane root = new javafx.scene.layout.BorderPane(this.mapa, toolBar, null, infoEntidades, null);
+        partida = root;
         return root;
+    }
+
+    private void crearInfo(){
+        informante = new InfoEntidad();
+        this.actulizarInfoEntidad(null);
     }
 
     private void crearBarraDeOpciones(){
@@ -100,10 +95,26 @@ public class Partida {
 
         this.toolBar = tools;
     }
-/*
+
     private void crearMapa(){
 
+        this.mapa = new SwingNode();
+        TableroGUI tablero = new TableroGUI(ConstantesPantalla.tamanioMapaPequenio,true,this,this.juego.mapa);
 
+        javax.swing.GroupLayout tableroGUI1Layout = new javax.swing.GroupLayout(tablero);
+        tablero.setLayout(tableroGUI1Layout);
+        tableroGUI1Layout.setHorizontalGroup(
+                tableroGUI1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 349, Short.MAX_VALUE)
+        );
+        tableroGUI1Layout.setVerticalGroup(
+                tableroGUI1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGap(0, 349, Short.MAX_VALUE)
+        );
+
+        this.mapa.setContent(tablero);
+
+/*
         InputStream entradaImagen;
         try {
             entradaImagen = Files.newInputStream(Paths.get("file:src/interaz/imagenes/tablero.jpg"));
@@ -115,8 +126,13 @@ public class Partida {
             this.fondoTablero =  vistaImagen;
         } catch (IOException e) {
         }
+*/
+    }
 
-    }*/
+    public void actulizarInfoEntidad(Entidad entidad){
+        infoEntidades = informante.generarInfo(entidad);
+        //partida.setBottom(infoEntidades);
+    }
 
     public void actualizarMapa(){}
 }

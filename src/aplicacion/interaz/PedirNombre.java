@@ -9,8 +9,9 @@ public class PedirNombre implements ActionListener {
     private JTextField jugador2;
     private JButton botonOk;
     private JFrame ventana;
-    public String jugadorUno;
-    public String jugadorDos;
+    //devido al bug tomo como base los nombre jugador
+    public String jugadorUno = "jugador uno";
+    public String jugadorDos = "jugador dos";
     private boolean completo;
 
     public PedirNombre(){}
@@ -44,9 +45,9 @@ public class PedirNombre implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String jugadorUno = jugador1.getText();
-        String jugadorDos = jugador2.getText();
         if(e.getSource() == botonOk){
+            String jugadorUno = jugador1.getText();
+            String jugadorDos = jugador2.getText();
             this.jugadorUno = jugadorUno;
             this.jugadorDos = jugadorDos;
             ventana.dispose();
