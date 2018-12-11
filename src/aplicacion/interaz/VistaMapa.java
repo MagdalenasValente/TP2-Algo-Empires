@@ -1,25 +1,50 @@
 package interaz;
 
+import interaz.botones.Boton;
+import interaz.botones.BotonEntidad;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import mapa.Mapa;
 
 import java.awt.*;
 
 public class VistaMapa {
+    private GridPane vistaDelMapa;
+    private Mapa mapa;
 
 
 
-    public VistaMapa(Point tamanio){
+    public VistaMapa(Point tamanio, Mapa mapa){
+        this.mapa = mapa;
 
-        int tamanioHorizontal = (int) tamanio.getX() * ConstantesPantalla.tamanioDeIcono1x1;
-        int tamanioVertical = (int) tamanio.getY() * ConstantesPantalla.tamanioDeIcono1x1;
-        javafx.scene.image.Image imagen = new Image("file:src/interfaz/imagenes/tablero.jpg");
-        Rectangle mapaVisual = new Rectangle();
+        int tamanioHorizontal = (int) tamanio.getX();
+        int tamanioVertical = (int) tamanio.getY();
+        //javafx.scene.image.Image imagen = new Image("file:src/interfaz/imagenes/tablero.jpg");
+        //ConstantesPantalla.tamanioDeIcono1x1;
 
-        mapaVisual.setSize(tamanioHorizontal,tamanioVertical);
-        BackgroundSize size = new BackgroundSize(tamanioHorizontal,tamanioVertical,false,false,true,true);
-        BackgroundImage imagenDeFondo = new BackgroundImage(imagen, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,size);
-        //this.setBack(new Background(imagenDeFondo));
+        vistaDelMapa = new GridPane();
+        vistaDelMapa.setVgap(0);
+        vistaDelMapa.setHgap(0);
 
+        for (int i = 0; i < tamanioHorizontal; i++){
+            for (int j = 0; j < tamanioHorizontal; j++){
+                this.actulizarCelda(i,j);
+            }
+        }
+    }
+
+    public void actulizarCelda(int ubicacionHorizontal, int ubicacionVertical){
+        Point ubicacion = new Point(ubicacionHorizontal,ubicacionVertical);
+        if (mapa.estaOcupado(ubicacion)) {
+            Boton boton = new BotonEntidad(mapa.entidadQueOcupaLaPoscicion(ubicacion),ubicacion);
+            vistaDelMapa.add(boton, ubicacionHorizontal, ubicacionVertical);
+        }else{
+            Boton boton = new BotonEntidad(null,ubicacion);
+            vistaDelMapa.add(boton, ubicacionHorizontal, ubicacionVertical);
+        }
+    }
+
+    public GridPane obtenerGrilla(){
+        return vistaDelMapa;
     }
 }

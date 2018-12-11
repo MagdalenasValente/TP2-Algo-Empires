@@ -32,9 +32,13 @@ public class ConstantesPantalla {
     public static String toolBarSalirPartida = "Salir de la partida";
     public static String toolBarSalirJuego = "Cerrar juego";
 
+    public static String turnoDelJugador = "Turno del jugador: ";
+    public static String jugadorUno = "Jugador uno";
+    public static String jugadorDos = "jugador dos";
+
     //mapa
     public static int tamanioMapaPequenio = 40;
-    public static int tamanioDeIcono1x1 = 10;
+    public static int tamanioDeIcono1x1 = 18;
     //swap del stage
     public static void actualizarStage(Stage stage, Scene nuevaEscena){
         boolean pantallaCompleta = stage.isFullScreen();

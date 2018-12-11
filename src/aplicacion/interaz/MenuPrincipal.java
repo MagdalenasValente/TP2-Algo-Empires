@@ -13,6 +13,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class MenuPrincipal extends StackPane {
 
     public Stage stage;
@@ -22,6 +24,7 @@ public class MenuPrincipal extends StackPane {
     private BorderPane menuOpcionesGraficas;
     //public Stage juego;
     private BorderPane tableroDeJuego;
+    private BorderPane nombres;
 
     public MenuPrincipal(Stage stage) {
         this.stage = stage;
@@ -103,6 +106,20 @@ public class MenuPrincipal extends StackPane {
             this.getChildren().add(menuPrincipal);
         });
 
+        //rigth nombres de jugadores
+  //      PedirNombre pedirNombres = new PedirNombre();
+  //      VBox nombres = pedirNombres.cajaDeNombres();
+/*        VBox nombres = new VBox();
+
+        JTextField pedirNombreJugador1 = new JTextField(ConstantesPantalla.jugadorUno);
+        pedirNombreJugador1.setBounds(50,50, 200,30);
+
+        JTextField pedirNombreJugador2 = new JTextField(ConstantesPantalla.jugadorDos);
+        pedirNombreJugador2.setBounds(50,100, 200,30);
+
+        nombres.getChildren().addAll();
+        */
+
         opciones.getChildren().addAll(botonParaMapaPequenio,botonParaMapaMedio,botonParaMapaGrande,botonRetroceso);
         //agregar al menu
         menuJuego = new javafx.scene.layout.BorderPane(null, titulo, null, null, opciones);
@@ -135,6 +152,7 @@ public class MenuPrincipal extends StackPane {
     }
 
     private void iniciarMapaPequenio(){
+
         PedirNombre pedirNombre = new PedirNombre();
         pedirNombre.obtenerNombreDeJugador();
         while (!pedirNombre.completo()) {
@@ -146,6 +164,9 @@ public class MenuPrincipal extends StackPane {
         }
         String nombreJugadorUno = pedirNombre.jugadorUno;
         String nombreJugadorDos = pedirNombre.jugadorDos;
+
+        //String nombreJugadorUno = ConstantesPantalla.jugadorUno;
+        //String nombreJugadorDos = ConstantesPantalla.jugadorDos;
         //hay un bug no toma los nombres
         IniciarJuego juego = new IniciarJuego(ConstantesPantalla.tamanioMapaPequenio,ConstantesPantalla.tamanioMapaPequenio,nombreJugadorUno,nombreJugadorDos);
         Partida partida = new Partida(stage,juego);

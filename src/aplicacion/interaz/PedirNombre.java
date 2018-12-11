@@ -1,5 +1,7 @@
 package interaz;
 
+import javafx.scene.layout.VBox;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +12,8 @@ public class PedirNombre implements ActionListener {
     private JButton botonOk;
     private JFrame ventana;
     //devido al bug tomo como base los nombre jugador
-    public String jugadorUno = "jugador uno";
-    public String jugadorDos = "jugador dos";
+    public String jugadorUno = ConstantesPantalla.jugadorUno;
+    public String jugadorDos = ConstantesPantalla.jugadorDos;
     private boolean completo;
 
     public PedirNombre(){}
@@ -38,7 +40,17 @@ public class PedirNombre implements ActionListener {
 
         completo = false;
     }
+/*
+    public VBox cajaDeNombres(){
+        VBox caja = new VBox();
 
+        JTextField pedirNombreJugador1 = new JTextField(jugadorUno);
+
+        JTextField pedirNombreJugador2 = new JTextField(jugadorDos);
+
+        return caja;
+    }
+*/
     public boolean completo(){
         return completo;
     }

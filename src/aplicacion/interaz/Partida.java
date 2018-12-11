@@ -40,7 +40,8 @@ public class Partida {
     public Boton anterior;
     public Boton fin;
     private IniciarJuego juego;
-    private SwingNode mapa;
+    //private SwingNode mapa;
+    private GridPane mapa;
     private InfoEntidad informante;
     private BorderPane partida;
 
@@ -86,10 +87,10 @@ public class Partida {
         Boton finalizarTurno = new BotonParaMenu("FIN DEL TURNO");
         fin = finalizarTurno;
 
-        Text jugadorActual = new Text(juego.turnoDeJugador);
+        Text jugadorActual = new Text(ConstantesPantalla.turnoDelJugador + juego.turnoDeJugador);
         jugadorActual.setFont(Font.font(24));
         jugadorActual.setFill(Color.BLACK);
-        ToolBar tools = new ToolBar(opcionesDeSalida,opcionesDePantalla,finalizarTurno);
+        ToolBar tools = new ToolBar(opcionesDeSalida,opcionesDePantalla,finalizarTurno,jugadorActual);
 
         //tools.getChildrenUnmodifiable().addAll(opcionesDeSalida,opcionesDePantalla,finalizarTurno,jugadorActual);
 
@@ -97,7 +98,7 @@ public class Partida {
     }
 
     private void crearMapa(){
-
+/*
         this.mapa = new SwingNode();
         TableroGUI tablero = new TableroGUI(ConstantesPantalla.tamanioMapaPequenio,true,this,this.juego.mapa);
 
@@ -113,20 +114,9 @@ public class Partida {
         );
 
         this.mapa.setContent(tablero);
-
-/*
-        InputStream entradaImagen;
-        try {
-            entradaImagen = Files.newInputStream(Paths.get("file:src/interaz/imagenes/tablero.jpg"));
-            Image imagen = new Image(entradaImagen);
-            entradaImagen.close();
-            ImageView vistaImagen = new ImageView(imagen);
-            vistaImagen.setFitWidth(ConstantesPantalla.anchoImagenFondo);
-            vistaImagen.setFitHeight(ConstantesPantalla.altoImagenFondo);
-            this.fondoTablero =  vistaImagen;
-        } catch (IOException e) {
-        }
 */
+        VistaMapa vistaMapa = new VistaMapa(new Point(ConstantesPantalla.tamanioMapaPequenio,ConstantesPantalla.tamanioMapaPequenio), this.juego.mapa);
+        this.mapa = vistaMapa.obtenerGrilla();
     }
 
     public void actulizarInfoEntidad(Entidad entidad){

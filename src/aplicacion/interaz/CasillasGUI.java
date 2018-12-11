@@ -66,7 +66,14 @@ public class CasillasGUI extends javax.swing.JPanel implements MouseListener {
     }
     public void mouseEntered(MouseEvent e){}
     public void mouseExited(MouseEvent e){}
-    public void mousePressed(MouseEvent e){}
+    public void mousePressed(MouseEvent e){
+        java.awt.Point ubicacion = e.getPoint();
+        Entidad ente;
+        if (tablero.mapa.estaOcupado(ubicacion)) {
+            ente = tablero.mapa.entidadQueOcupaLaPoscicion(ubicacion);
+        }else {ente = null;}
+        tablero.seleccionarEnte(ente);
+    }
     public void mouseReleased(MouseEvent e){}
 
     public Entidad getEntidad() {

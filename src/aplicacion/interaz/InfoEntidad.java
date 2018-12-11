@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 
 public class InfoEntidad {
 
-    private Unidad Unidad;
+    private HBox infoDeEntidad;
 
     public InfoEntidad(){}
 
@@ -111,12 +111,17 @@ public class InfoEntidad {
     }
 
     public static ImageView entidadSeleccionadaIcono (Entidad entidad){
+        String url;
         if (entidad == null) {
-            Image icono = new Image("file:src/interfaz/imagenes/blanco.png");
-            return new ImageView(icono);
+            //Image icono = new Image("file:src/interaz/imagenes/vacio.png");
+            //return new ImageView(icono);
+            //return null;
+            url = "file:src/interaz/imagenes/vacio.png";
+        }else {
+            String nombre = entidad.getNombre();
+            //String url = "file:src/interaz/imagenes/" + nombre + ".png";
+            url = "file:src/interaz/imagenes/" + nombre + ".png";
         }
-        String nombre = entidad.getNombre();
-        String url = "file:src/interaz/imagenes/" + nombre + ".png";
 
         Image icono = new Image(url);
 
@@ -131,7 +136,15 @@ public class InfoEntidad {
     public HBox generarInfo(Entidad entidad){
         //caja horizontal
         HBox infoDeEntidad = new HBox();
+        this.acctualizarInfo(entidad,infoDeEntidad);
+        this.infoDeEntidad = infoDeEntidad;
+        return infoDeEntidad;
 
+    }
+
+    public void acctualizarInfo(Entidad entidad, HBox infoDeEntidad){
+
+        infoDeEntidad.getChildren().clear();
         //espacios entre cosas
         infoDeEntidad.setSpacing(10);
 
@@ -165,10 +178,8 @@ public class InfoEntidad {
 */
         //agrego las cosas a la caja horizontal
         infoDeEntidad.getChildren().addAll(icono,infoGeneral,infoAtaque,ataque,movimiento,montar,construir);
-        return infoDeEntidad;
 
+        this.infoDeEntidad = infoDeEntidad;
     }
-
-    public void acctualizarInfo(Entidad entidad){}
 
 }

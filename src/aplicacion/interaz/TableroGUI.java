@@ -13,7 +13,7 @@ public class TableroGUI extends javax.swing.JPanel {
     public ImageIcon fondo;
     private boolean tipoTablero;
     private CasillasGUI [][] casillas ;
-    private int tamanioDeCasilleros = 18;
+    private int tamanioDeCasilleros = ConstantesPantalla.tamanioDeIcono1x1;
     private int tamanioTablero;
     private Partida partida;
     public Mapa mapa;
