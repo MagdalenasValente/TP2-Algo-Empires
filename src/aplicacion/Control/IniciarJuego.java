@@ -14,13 +14,13 @@ public class IniciarJuego {
     public Mapa mapa;
     private Juego juego;
     public String turnoDeJugador;
-    private String jugadorUno;
-    private String jugadorDos;
+    private String nombreDeJugadorUno;
+    private String nombreDeJugadorDos;
 
     public IniciarJuego(int tamanioMapaAncho, int tamanioMapaLargo, String nombreJugadorUno, String nombreJugadorDos){
 
-        jugadorUno = nombreJugadorUno;
-        jugadorDos = nombreJugadorDos;
+        nombreDeJugadorUno = nombreJugadorUno;
+        nombreDeJugadorDos = nombreJugadorDos;
 
         seleccionarOrdenDeJugador();
 
@@ -49,19 +49,24 @@ public class IniciarJuego {
     private void seleccionarOrdenDeJugador(){
         Random primeroUno = new Random();
         if (primeroUno.nextBoolean()){
-            this.turnoDeJugador = jugadorUno;
-            this.juego = new Juego(jugadorUno,jugadorDos);
+            this.turnoDeJugador = nombreDeJugadorUno;
+            this.juego = new Juego(nombreDeJugadorUno, nombreDeJugadorDos);
         }
         else {
-            this.turnoDeJugador = jugadorDos;
-            this.juego = new Juego(jugadorDos,jugadorUno);
+            this.turnoDeJugador = nombreDeJugadorDos;
+            this.juego = new Juego(nombreDeJugadorDos, nombreDeJugadorUno);
         }
     }
 
     public void finDelTurno(){
-        if (turnoDeJugador == jugadorUno){
-            turnoDeJugador = jugadorDos;
+        if (turnoDeJugador == nombreDeJugadorUno){
+            turnoDeJugador = nombreDeJugadorDos;
         }
-        else{turnoDeJugador = jugadorUno;}
+        else{turnoDeJugador = nombreDeJugadorUno;}
+    }
+
+
+    public boolean finalizarPartida(){
+        return juego.acabo();
     }
 }

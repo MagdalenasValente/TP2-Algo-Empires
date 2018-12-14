@@ -1,6 +1,7 @@
 package entidades.edificios;
 
 
+import Control.InformacionDeControl;
 import entidades.unidades.Aldeano;
 import entidades.unidades.ArmaDeAsedio;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
@@ -35,6 +36,11 @@ public class Castillo extends Edificio{
 
     public void actuar(){
 
+    }
+
+    //visor de informacion
+    public void informacionBasica(){
+        InformacionDeControl.visorDeInformacion(this);
     }
 
 

@@ -93,4 +93,6 @@ public abstract class Entidad{
 	public int getRango() {
 		return rango;
 	}
+
+	public abstract void informacionBasica();
 }

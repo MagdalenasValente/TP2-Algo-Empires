@@ -1,5 +1,6 @@
 package entidades.edificios;
 
+import Control.InformacionDeControl;
 import entidades.Entidad;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.InvalidUnidadTipoException;
@@ -33,6 +34,10 @@ public abstract class Edificio extends Entidad implements EdificioReparable{
 
     public void quitarVida(int cantidad){
         super.quitarVida(cantidad);
+    }
+
+    public void informacionBasica(){
+        InformacionDeControl.visorDeInformacion(this);
     }
 
 }

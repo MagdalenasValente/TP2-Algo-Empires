@@ -178,6 +178,10 @@ public class MenuPrincipal extends StackPane {
             this.getChildren().remove(tableroDeJuego);
             this.getChildren().add(menuJuego);
         });
+
+        /*while (!juego.finalizarPartida()){
+
+        }*/
     }
 
    /* private IniciarJuego crearInicioDePartida(int tamanio){

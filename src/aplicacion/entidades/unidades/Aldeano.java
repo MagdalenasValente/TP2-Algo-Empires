@@ -1,5 +1,6 @@
 package entidades.unidades;
 
+import Control.InformacionDeControl;
 import entidades.edificios.EdificioConstruible;
 import entidades.edificios.Cuartel;
 import entidades.edificios.Edificio;
@@ -78,5 +79,10 @@ public class Aldeano extends Unidad {
 	//////// MODO ACTUAR / TURNO
 	public void actuar(){
 		this.strategy.actuar( );
+	}
+
+	//visor de informacion
+	public void informacionBasica(){
+		InformacionDeControl.visorDeInformacion(this);
 	}
 }

@@ -41,7 +41,7 @@ public class BotonEntidad extends Boton {
 
 
         this.setOnMouseClicked(evento -> {
-            //aca iria el actualizar
+            InformacionDeControl.visorDeInformacion(this.entidad);
         });
     }
 }

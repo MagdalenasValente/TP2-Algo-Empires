@@ -1,5 +1,6 @@
 package entidades.unidades;
 
+import Control.InformacionDeControl;
 import entidades.edificios.Edificio;
 import excepciones.NoPuedeRepararException;
 
@@ -15,5 +16,9 @@ public class ArmaDeAsedio extends Unidad {
 	public void actuar(){
 
 
+	}
+	//visor de informacion
+	public void informacionBasica(){
+		InformacionDeControl.visorDeInformacion(this);
 	}
 }

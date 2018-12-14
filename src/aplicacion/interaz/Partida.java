@@ -53,6 +53,7 @@ public class Partida {
     public BorderPane crearPartida(){
         this.crearBarraDeOpciones();
         this.crearMapa();
+        this.crearFondoTablero();
         /*
         InfoEntidad infoEntidad = new InfoEntidad();
 
@@ -85,6 +86,10 @@ public class Partida {
         new PantallaCompleta(pantallaCompleta, stage);
 
         Boton finalizarTurno = new BotonParaMenu("FIN DEL TURNO");
+        finalizarTurno.setOnMouseClicked(evento -> {
+            this.cambiarTurno();
+            this.actualizarMapa();
+        });
         fin = finalizarTurno;
 
         Text jugadorActual = new Text(ConstantesPantalla.turnoDelJugador + juego.turnoDeJugador);
@@ -95,6 +100,21 @@ public class Partida {
         //tools.getChildrenUnmodifiable().addAll(opcionesDeSalida,opcionesDePantalla,finalizarTurno,jugadorActual);
 
         this.toolBar = tools;
+    }
+
+    private void crearFondoTablero() {
+        InputStream entradaImagen;
+        try {
+            entradaImagen = Files.newInputStream(Paths.get("src/interaz/imagenes/hierba.jpg"));
+            Image imagen = new Image(entradaImagen);
+            entradaImagen.close();
+            ImageView vistaImagen = new ImageView(imagen);
+            //vistaImagen.setFitWidth(ConstantesPantalla.anchoImagenTablero);
+            //vistaImagen.setFitHeight(ConstantesPantalla.altoImagenTablero);
+            this.fondoTablero =  vistaImagen;
+        } catch (IOException e) {
+        }
+
     }
 
     private void crearMapa(){
@@ -124,6 +144,17 @@ public class Partida {
         //partida.setBottom(infoEntidades);
     }
 
-    public void actualizarMapa(){}
+    public void actualizarMapa(){
+        this.partida.getChildren().clear();
+        this.crearMapa();
+        this.crearBarraDeOpciones();
+        this.partida.setCenter(this.mapa);
+        this.partida.setTop(this.toolBar);
+        this.partida.setBottom(this.infoEntidades);
+    }
+
+    private void cambiarTurno(){
+        this.juego.finDelTurno();
+    }
 }
 

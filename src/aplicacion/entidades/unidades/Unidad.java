@@ -1,5 +1,6 @@
 package entidades.unidades;
 
+import Control.InformacionDeControl;
 import entidades.Entidad;
 import entidades.edificios.Edificio;
 import excepciones.DireccionInvalidaException;
@@ -27,4 +28,8 @@ public abstract class Unidad extends Entidad {
     private boolean direccionUnitariaEsValida(Point direccion){
 	    return (-1 <= direccion.getX() && direccion.getX() <= 1 && -1 <= direccion.getY() && direccion.getY() <= 1);
     }
+
+	public void informacionBasica(){
+		InformacionDeControl.visorDeInformacion(this);
+	}
 }
