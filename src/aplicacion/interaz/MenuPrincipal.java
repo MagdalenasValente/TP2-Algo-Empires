@@ -1,5 +1,6 @@
 package interaz;
 
+import Control.InformacionDeControl;
 import Control.IniciarJuego;
 import Control.eventos.PantallaCompleta;
 import Control.eventos.SalirDelJuego;
@@ -170,6 +171,9 @@ public class MenuPrincipal extends StackPane {
         //hay un bug no toma los nombres
         IniciarJuego juego = new IniciarJuego(ConstantesPantalla.tamanioMapaPequenio,ConstantesPantalla.tamanioMapaPequenio,nombreJugadorUno,nombreJugadorDos);
         Partida partida = new Partida(stage,juego);
+        //info
+        InformacionDeControl.partida = partida;
+        //
         tableroDeJuego = partida.crearPartida();
         this.getChildren().remove(menuJuego);
         this.getChildren().add(tableroDeJuego);

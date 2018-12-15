@@ -141,6 +141,14 @@ public class Partida {
 
     public void actulizarInfoEntidad(Entidad entidad){
         infoEntidades = informante.generarInfo(entidad);
+        if (partida != null){
+            this.actualizarMapa();
+        }
+        //partida.setBottom(infoEntidades);
+    }
+
+    public void agregarBotonera(GridPane grilla){
+        informante.agregarBotonera(grilla);
         //partida.setBottom(infoEntidades);
     }
 

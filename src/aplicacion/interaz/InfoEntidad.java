@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.layout.HBox;
@@ -113,13 +114,9 @@ public class InfoEntidad {
     public static ImageView entidadSeleccionadaIcono (Entidad entidad){
         String url;
         if (entidad == null) {
-            //Image icono = new Image("file:src/interaz/imagenes/vacio.png");
-            //return new ImageView(icono);
-            //return null;
             url = "file:src/interaz/imagenes/vacio.png";
         }else {
             String nombre = entidad.getNombre();
-            //String url = "file:src/interaz/imagenes/" + nombre + ".png";
             url = "file:src/interaz/imagenes/" + nombre + ".png";
         }
 
@@ -158,14 +155,14 @@ public class InfoEntidad {
         infoDeEntidad.setMargin(infoAtaque, new Insets(10, 10, 10, 10));
 
         //botones
-        Boton ataque = new BotonParaOrdenesAEntidades("ATQ",Color.RED,Color.PINK);
+        /*Boton ataque = new BotonParaOrdenesAEntidades("ATQ",Color.RED,Color.PINK);
         ataque.deshabilitarBoton();
         Boton movimiento = new BotonParaOrdenesAEntidades("MOV",Color.BLUE,Color.LIGHTBLUE);
         movimiento.deshabilitarBoton();
         Boton montar = new BotonParaOrdenesAEntidades("MON",Color.RED,Color.PINK);
         montar.deshabilitarBoton();
         Boton construir = new BotonParaOrdenesAEntidades("CON",Color.GREEN,Color.LIGHTGREEN);
-        construir.deshabilitarBoton();
+        construir.deshabilitarBoton();*/
 /*se debe rehacer de alguna forma sin getclass
         if (entidad != null) {
             ataque.habilitarBoton();
@@ -177,9 +174,13 @@ public class InfoEntidad {
         }
 */
         //agrego las cosas a la caja horizontal
-        infoDeEntidad.getChildren().addAll(icono,infoGeneral,infoAtaque,ataque,movimiento,montar,construir);
+        infoDeEntidad.getChildren().addAll(icono,infoGeneral,infoAtaque/*,ataque,movimiento,montar,construir*/);
 
         this.infoDeEntidad = infoDeEntidad;
+    }
+    public void agregarBotonera(GridPane botonera){
+        //this.acctualizarInfo(entidad, infoDeEntidad);
+        this.infoDeEntidad.getChildren().addAll(botonera);
     }
 
 }

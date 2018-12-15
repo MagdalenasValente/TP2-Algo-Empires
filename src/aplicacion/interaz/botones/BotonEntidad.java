@@ -41,7 +41,11 @@ public class BotonEntidad extends Boton {
 
 
         this.setOnMouseClicked(evento -> {
-            InformacionDeControl.visorDeInformacion(this.entidad);
+            if (this.entidad == null){
+                InformacionDeControl.visorDeInformacion(this.ubicacion);
+            }else {
+                InformacionDeControl.visorDeInformacion(this.entidad);
+            }
         });
     }
 }
