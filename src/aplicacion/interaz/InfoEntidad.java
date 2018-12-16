@@ -1,5 +1,6 @@
 package interaz;
 
+import Control.InformacionDeControl;
 import entidades.Entidad;
 import entidades.unidades.Unidad;
 import interaz.botones.Boton;
@@ -124,8 +125,9 @@ public class InfoEntidad {
         if (entidad == null) {
             url = "file:src/interaz/imagenes/vacio.png";
         }else {
-            String nombre = entidad.getNombre();
-            url = "file:src/interaz/imagenes/" + nombre + ".png";
+            //String nombre = entidad.getNombre();
+            //url = "file:src/interaz/imagenes/" + nombre + ".png";
+            url = InformacionDeControl.darUbicacionDeIconoDeEntidadParaFx(entidad);
         }
 
         Image icono = new Image(url);

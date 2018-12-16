@@ -29,7 +29,13 @@ public class InformacionDeControl {
         return url;
     }
     public static String darUbicacionDeIconoDeEntidadParaFx(Entidad entidad){
-        String url = "file:src/interfaz/imagenes/" + entidad.getNombre() + ".png";
+        //String url = "file:src/interaz/imagenes/" + entidad.getNombre() + ".png";
+        String url = "file:src/aplicacion/interaz/imagenes/" + entidad.getNombre() + ".png";
+        return url;
+    }
+    public static String darUbicacionDeIconoDeEntidadParaFx(String nombre){
+        //String url = "file:src/interaz/imagenes/" + nombre;
+        String url = "file:src/aplicacion/interaz/imagenes/" + nombre + ".png";
         return url;
     }
     //datos jugador

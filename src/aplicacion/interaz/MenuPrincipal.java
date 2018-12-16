@@ -30,7 +30,8 @@ public class MenuPrincipal extends StackPane {
     public MenuPrincipal(Stage stage) {
         this.stage = stage;
         //fondo
-        Image imagenDeFondoDelMenu = new Image("file:src/interaz/imagenes/menu.jpg");
+        //Image imagenDeFondoDelMenu = new Image("file:src/interaz/imagenes/menu.jpg");
+        Image imagenDeFondoDelMenu = new Image(InformacionDeControl.darUbicacionDeIconoDeEntidadParaFx("menu.jpg"));
         BackgroundSize size = new BackgroundSize(ConstantesPantalla.altoImagenFondo,ConstantesPantalla.anchoImagenFondo, false,false,true,true);
         BackgroundImage imagenDeFondo = new BackgroundImage(imagenDeFondoDelMenu, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,size);
         this.setBackground(new Background(imagenDeFondo));
