@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -17,6 +18,7 @@ import javafx.scene.layout.VBox;
 public class InfoEntidad {
 
     private HBox infoDeEntidad;
+    private int tamanioLetra = 16;
 
     public InfoEntidad(){}
 
@@ -48,6 +50,8 @@ public class InfoEntidad {
             vidaActual = new Text(vidaActualDeLaEntidad);
             vidaActual.setFill(Color.GREEN);
         }
+        nombre.setFont(Font.font(tamanioLetra));
+        vidaActual.setFont(Font.font(tamanioLetra));
         nombre.setFill(Color.BLUE);
 
         VBox infoDeEntidad = new VBox();
@@ -90,6 +94,10 @@ public class InfoEntidad {
             vsEdificio = new Text(danioAEdificios);
             vsUnidad = new Text(danioAUnidades);
         }
+        vsEdificio.setFont(Font.font(tamanioLetra));
+        vsUnidad.setFont(Font.font(tamanioLetra));
+        rango.setFont(Font.font(tamanioLetra));
+        danios.setFont(Font.font(tamanioLetra));
         rango.setFill(Color.RED);
         vsEdificio.setFill(Color.RED);
         vsUnidad.setFill(Color.RED);
@@ -124,8 +132,9 @@ public class InfoEntidad {
 
         ImageView imageView = new ImageView(icono);
 
-        imageView.setFitHeight(50);
-        imageView.setFitWidth(50);
+        double tamanioDeImagen = 70;
+        imageView.setFitHeight(tamanioDeImagen);
+        imageView.setFitWidth(tamanioDeImagen);
 
         return imageView;
     }

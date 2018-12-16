@@ -1,5 +1,6 @@
 package entidades.edificios;
 
+import Control.InformacionDeControl;
 import entidades.unidades.Aldeano;
 import entidades.unidades.FactoryUnidades.UnidadFactory;
 import entidades.edificios.StrategyEdificioConstruible.StrategyConstruible;
@@ -58,6 +59,9 @@ public class Cuartel extends Edificio implements EdificioConstruible {
 
     public void actuar(){
 
+    }
+    public void informacionBasica(){
+        InformacionDeControl.visorDeInformacion(this);
     }
 
 

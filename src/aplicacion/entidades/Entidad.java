@@ -79,7 +79,7 @@ public abstract class Entidad{
 	}
 
 	public String getNombre(){
-    	return nombre;
+		return nombre;
 	}
 
 	public int getDanioAEdificios() {

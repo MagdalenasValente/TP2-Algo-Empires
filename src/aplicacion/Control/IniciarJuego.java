@@ -1,8 +1,12 @@
 package Control;
 
 import entidades.edificios.Castillo;
+import entidades.edificios.Cuartel;
 import entidades.edificios.Plaza;
 import entidades.unidades.Aldeano;
+import entidades.unidades.ArmaDeAsedio;
+import entidades.unidades.Arquero;
+import entidades.unidades.Espadachin;
 import juego.Juego;
 import juego.Jugador;
 import mapa.Mapa;
@@ -18,7 +22,7 @@ public class IniciarJuego {
     private String nombreDeJugadorDos;
 
     public IniciarJuego(int tamanioMapaAncho, int tamanioMapaLargo, String nombreJugadorUno, String nombreJugadorDos){
-
+        //este mapa es de pruevas
         nombreDeJugadorUno = nombreJugadorUno;
         nombreDeJugadorDos = nombreJugadorDos;
 
@@ -44,6 +48,14 @@ public class IniciarJuego {
             mapa.colocar(aldeanosJugadorUno,new Aldeano());
             mapa.colocar(aldeanosJugadorDos,new Aldeano());
         }
+        //pruevas varias
+        mapa.colocar(new Point(1 ,1),new Espadachin());
+        mapa.colocar(new Point(1 ,2),new Arquero());
+        mapa.colocar(new Point(1 ,3),new ArmaDeAsedio());
+        ArmaDeAsedio montada = new ArmaDeAsedio();
+        montada.montarDesmontar();
+        mapa.colocar(new Point(1 ,4),montada);
+        mapa.colocar(new Point(1 ,8),new Cuartel());
     }
 
     private void seleccionarOrdenDeJugador(){
