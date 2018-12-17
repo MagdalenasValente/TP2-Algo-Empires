@@ -19,6 +19,7 @@ public class Cuartel extends Edificio implements EdificioConstruible {
     public Cuartel() {
         super(250, new Point(2,2),15, 0, 0, "Cuartel",0);
         this.strategy = new EnConstruccion(this);
+        this.agregarCosteEnOro(250);
     }
 
     // SET STRATEGY

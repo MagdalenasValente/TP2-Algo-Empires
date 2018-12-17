@@ -20,6 +20,7 @@ public class Aldeano extends Unidad {
 		super(50, 0, 0, "Aldeano",0);
 		this.oro = 0;
 		this.strategy = new RecolectorOro(this);
+		this.agregarCosteEnOro(25);
 	}
 
 

@@ -13,6 +13,7 @@ import interaz.Partida;
 import interaz.botones.Boton;
 import interaz.botones.BotonParaOrdenesAEntidades;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import juego.Jugador;
@@ -29,18 +30,34 @@ public class InformacionDeControl {
         return url;
     }
     public static String darUbicacionDeIconoDeEntidadParaFx(Entidad entidad){
-        //String url = "file:src/interaz/imagenes/" + entidad.getNombre() + ".png";
-        String url = "file:src/aplicacion/interaz/imagenes/" + entidad.getNombre() + ".png";
+        String url = "file:src/interaz/imagenes/" + entidad.getNombre() + ".png";
+        //String url = "file:src/aplicacion/interaz/imagenes/" + entidad.getNombre() + ".png";
         return url;
     }
     public static String darUbicacionDeIconoDeEntidadParaFx(String nombre){
-        //String url = "file:src/interaz/imagenes/" + nombre;
-        String url = "file:src/aplicacion/interaz/imagenes/" + nombre + ".png";
+        String url = "file:src/interaz/imagenes/" + nombre;
+        //String url = "file:src/aplicacion/interaz/imagenes/" + nombre + ".png";
         return url;
     }
     //datos jugador
-    public static void jugadorPoblacion(Jugador jugador){}
-    public static void jugadorOro(Jugador jugador){}
+    public static VBox infoJugador(Jugador jugador,int tamanio){
+        VBox info = new VBox();
+        Text oro = jugadorOro(jugador);
+        Text poblacion = jugadorPoblacion(jugador);
+        oro.setFont(Font.font(tamanio));
+        poblacion.setFont(Font.font(tamanio));
+        info.getChildren().addAll(poblacion,oro);
+        return info;
+    }
+    private static Text jugadorPoblacion(Jugador jugador){
+        int poblacion = jugador.getPoblacion();
+        String cantpoblacion = "poblacion: " + poblacion + "/50";
+        return new Text(cantpoblacion);}
+    private static Text jugadorOro(Jugador jugador){
+        int oro = jugador.getOro();
+        String cantOro = "Oro actual: " + oro;
+        return new Text(cantOro);
+    }
     //vista de la informacion de las entidades
     public static void visorDeInformacion(Point ubicacion){}
     public static void visorDeInformacion(Entidad entidad) {

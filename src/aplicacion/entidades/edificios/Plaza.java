@@ -18,6 +18,7 @@ public class Plaza extends Edificio implements EdificioConstruible {
     public Plaza() {
         super(450, new Point(2,2), 15, 0, 0, "Plaza",0);
         strategy = new EnConstruccion(this);
+        this.agregarCosteEnOro(100);
     }
 
 

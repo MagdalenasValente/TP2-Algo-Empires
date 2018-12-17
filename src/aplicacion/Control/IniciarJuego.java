@@ -1,5 +1,6 @@
 package Control;
 
+import entidades.Entidad;
 import entidades.edificios.Castillo;
 import entidades.edificios.Cuartel;
 import entidades.edificios.Plaza;
@@ -37,11 +38,19 @@ public class IniciarJuego {
         Point plazaJugadorUno = new Point(unbicacionDelCastilloAncho + 5,unbicacionDelCastilloLargo);
         Point plazaJugadorDos = new Point((unbicacionDelCastilloAncho * 3) - 5,unbicacionDelCastilloLargo * 3);
 
+        Jugador primero = juego.getJugadorDeTurno();
+        Jugador segundo = juego.getJugadorEnEspera();
+
+        Entidad castilloDeJugadorUno = new Castillo();
+        Entidad castilloDeJugadorDos = new Castillo();
+        Entidad plazaDeJugadorUno = new Plaza();
+        Entidad plazaDeJugadorDos = new Plaza();
+
         mapa = new Mapa(tamanioMapaAncho,tamanioMapaLargo);
-        mapa.colocar(castilloJugadorUno,new Castillo());
-        mapa.colocar(castilloJugadorDos,new Castillo());
-        mapa.colocar(plazaJugadorUno,new Plaza());
-        mapa.colocar(plazaJugadorDos,new Plaza());
+        mapa.colocar(castilloJugadorUno,castilloDeJugadorUno);
+        mapa.colocar(castilloJugadorDos,castilloDeJugadorDos);
+        mapa.colocar(plazaJugadorUno,plazaDeJugadorUno);
+        mapa.colocar(plazaJugadorDos,plazaDeJugadorDos);
         for (int i = 0; i < 3; i++){
             Point aldeanosJugadorUno = new Point(unbicacionDelCastilloAncho + (i*2),unbicacionDelCastilloLargo - 5);
             Point aldeanosJugadorDos = new Point((unbicacionDelCastilloAncho * 3)- (i*2),(unbicacionDelCastilloAncho * 3) + 5);
@@ -70,11 +79,15 @@ public class IniciarJuego {
         }
     }
 
-    public void finDelTurno(){
+    public Jugador finDelTurno(){
         if (turnoDeJugador == nombreDeJugadorUno){
             turnoDeJugador = nombreDeJugadorDos;
         }
         else{turnoDeJugador = nombreDeJugadorUno;}
+        return juego.terminarTurno();
+    }
+    public Jugador jugadorActual(){
+        return juego.getJugadorDeTurno();
     }
 
 

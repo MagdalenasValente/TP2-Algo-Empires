@@ -9,12 +9,13 @@ public class Juego {
             this.jugadorOponente = new Jugador(nombre2);
         }
 
-        public void terminarTurno(){
+        public Jugador terminarTurno(){
             this.jugadorDeTurno.terminarTurno();
             if(this.acabo()){
                 //se acabo el juego
             }
             this.cambiarJugadores();
+            return this.jugadorDeTurno;
 
         }
 
@@ -28,4 +29,11 @@ public class Juego {
         public boolean acabo(){
             return this.jugadorOponente.haPerdido();
         }
+
+    public Jugador getJugadorDeTurno() {
+        return jugadorDeTurno;
+    }
+    public Jugador getJugadorEnEspera() {
+        return jugadorOponente;
+    }
 }

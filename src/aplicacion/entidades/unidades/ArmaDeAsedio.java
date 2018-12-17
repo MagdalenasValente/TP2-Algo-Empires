@@ -10,6 +10,7 @@ public class ArmaDeAsedio extends Unidad {
 	public ArmaDeAsedio() {
 		super(150, 0, 75, "Arma de asedio",5);
 		montada = false;
+		this.agregarCosteEnOro(200);
 	}
 
 	public void montarDesmontar(){

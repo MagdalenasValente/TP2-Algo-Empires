@@ -123,7 +123,8 @@ public class InfoEntidad {
     public static ImageView entidadSeleccionadaIcono (Entidad entidad){
         String url;
         if (entidad == null) {
-            url = "file:src/interaz/imagenes/vacio.png";
+            //url = "file:src/interaz/imagenes/vacio.png";
+            url = InformacionDeControl.darUbicacionDeIconoDeEntidadParaFx("vacio.png");
         }else {
             //String nombre = entidad.getNombre();
             //url = "file:src/interaz/imagenes/" + nombre + ".png";

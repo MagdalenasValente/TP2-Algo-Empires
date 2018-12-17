@@ -4,7 +4,9 @@ import Control.InformacionDeControl;
 import Control.IniciarJuego;
 import Control.eventos.PantallaCompleta;
 import Control.eventos.SalirDelJuego;
+import interaz.botones.Boton;
 import interaz.botones.BotonParaMenu;
+import interaz.botones.BotonParaToolBar;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
@@ -175,11 +177,12 @@ public class MenuPrincipal extends StackPane {
         //info
         InformacionDeControl.partida = partida;
         //
-        tableroDeJuego = partida.crearPartida();
+        Boton salirDeLaPartida = new BotonParaToolBar(ConstantesPantalla.toolBarSalirPartida);
+        tableroDeJuego = partida.crearPartida(salirDeLaPartida);
         this.getChildren().remove(menuJuego);
         this.getChildren().add(tableroDeJuego);
 
-        partida.anterior.setOnMouseClicked(evento -> {
+        salirDeLaPartida.setOnMouseClicked(evento -> {
             this.getChildren().remove(tableroDeJuego);
             this.getChildren().add(menuJuego);
         });

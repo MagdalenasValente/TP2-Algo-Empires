@@ -19,6 +19,7 @@ public abstract class Entidad{
 	private int danioAEdificios;
 	private int rango;
     private String nombre;//talvez borrar en refactor
+	private int costeEnOro;
 
     public Mapa getMapa(){
         return this.mapa;
@@ -32,6 +33,7 @@ public abstract class Entidad{
 		this.danioAEdificios = danioAEdificios;
 		this.rango = rango;
 		this.nombre = nombre;
+		this.costeEnOro = 0;
 	}
 	public int vida() {
     	return this.vida.verVida();
@@ -95,4 +97,11 @@ public abstract class Entidad{
 	}
 
 	public abstract void informacionBasica();
+
+    protected void agregarCosteEnOro(int costeEnOros){
+		this.costeEnOro = costeEnOro;
+	}
+	public int costo(){
+    	return costeEnOro;
+	}
 }
